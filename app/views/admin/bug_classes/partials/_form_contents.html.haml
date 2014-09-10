@@ -5,7 +5,7 @@
 .large-1.columns
   = f.label :bug_class_id
 .large-3.columns
-  %select{name: 'bug_class[superclass_id]', id: 'bug_class[superclass_id]'}
+  %select{name: 'bug_class[drug_class_id]', id: 'bug_class[drug_class_id]'}
     = render partial: 'admin/bug_classes/partials/option', locals: {bc: BugClass.node_0}
 .large-1.columns
   = f.label :order

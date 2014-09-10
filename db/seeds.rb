@@ -26,7 +26,7 @@ User.create(
 bugs = BugClass.create(
   name: BugClass.universal_class,
   order: 1,
-  superclass_id: nil
+  drug_class_id: nil
 )
 
 bacteria = BugClass.create(

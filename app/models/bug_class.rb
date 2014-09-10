@@ -1,7 +1,7 @@
 class BugClass < ActiveRecord::Base
 
-  belongs_to :superclass, class_name: 'BugClass'
-  has_many :subclasses, class_name: 'BugClass', foreign_key: 'superclass_id'
+  belongs_to :drug_class, class_name: 'BugClass'
+  has_many :subclasses, class_name: 'BugClass', foreign_key: 'drug_class_id'
   has_many :bugs, -> { order(:order) }
 
   def self.universal_class

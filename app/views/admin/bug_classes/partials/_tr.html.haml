@@ -1,7 +1,7 @@
 = content_tag_for(:tr, bc) do
   %td= link_to bc.name, bc
   %td= bc.order
-  %td= bc.superclass ? (link_to bc.superclass.name, bc.superclass) : 'N/A'
+  %td= bc.drug_class ? (link_to bc.drug_class.name, bc.drug_class) : 'N/A'
   %td
     = link_to edit_admin_bug_class_path(bc) do
       %i.fi-pencil

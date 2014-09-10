@@ -1,0 +1,8 @@
+%p
+  - @lineage.each do |ancestor|
+    = link_to ancestor.name, ancestor, class: 'bug-class'
+    >
+%h1.bug
+  .morphology{class: @bug.gram_stain}
+  = @bug.name
+
