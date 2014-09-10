@@ -17,4 +17,8 @@ class ApplicationController < ActionController::Base
   def ensure_admin
     render text: 'Not Authorized' if (@current_user.nil? || !@current_user.is_admin)
   end
+
+  def alert_js(s)
+    render js: "alert('#{s}');"
+  end
 end

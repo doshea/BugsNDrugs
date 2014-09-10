@@ -1,3 +1,7 @@
-$('#bug_class_<%= @bc.id %>').fadeOut(1000, function(){
-  $(this).remove();
+var columns = $('table th').length;
+var new_contents = $("<td colspan='"+columns+"'>Deleted '<b><%= @bc.name %></b>'</td>").addClass('deleted');
+var row = $('#bug_class_<%= @bc.id %>');
+row.children().animate({opacity: 0}, 200, function(){
+  row.empty().append(new_contents);
+  new_contents.animate({opacity: 1}, 200);
 });

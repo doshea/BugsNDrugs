@@ -11,11 +11,23 @@
         %li
           = link_to 'Admin', admin_path
       %li.divider
+    -# Middle
+    %ul.middle
+
     -# Right Nav Section
     %ul.right
       %li.divider
       %li
         = link_to 'Bugs', bug_classes_path
+      %li.divider
+      %li
+        = link_to 'Drugs', bug_classes_path
+      %li.divider
+      %li
+        = link_to 'Symptoms', bug_classes_path
+      %li.divider
+      %li
+        = link_to 'Syndromes', bug_classes_path
       %li.divider      
       - if @current_user
         %li.has-dropdown

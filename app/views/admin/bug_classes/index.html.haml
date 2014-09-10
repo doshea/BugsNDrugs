@@ -1,20 +1,17 @@
-%table
-  %thead
-    %tr
-      %th Name
-      %th Order
-      %th Superclass
-      %th
-      %th
-  %tbody
-    - @bcs.each do |bug_class|
-      = content_tag_for(:tr, bug_class) do
-        %td= link_to bug_class.name, bug_class
-        %td= bug_class.order
-        %td= bug_class.superclass ? (link_to bug_class.superclass.name, bug_class.superclass) : 'N/A'
-        %td
-          = link_to edit_admin_bug_class_path(bug_class) do
-            %i.fi-pencil
-        %td
-          = link_to admin_bug_class_path(bug_class), method: :delete, remote: true, data: {confirm: "Are you SURE you want to delete #{bug_class.name}?"} do
-            %i.fi-trash
+%h3 New Bug Class
+.row
+  = render partial: 'admin/bug_classes/partials/form', locals: {new_bc: @new_bc}
+%br
+%h3 Current Bug Classes
+.row
+  %table
+    %thead
+      %tr
+        %th Name
+        %th Order
+        %th Superclass
+        %th
+        %th
+    %tbody
+      - @bcs.each do |bc|
+        = render partial: 'admin/bug_classes/partials/tr', locals: {bc: bc}

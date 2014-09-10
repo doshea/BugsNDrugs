@@ -1,1 +1,55 @@
 /* This will contain global css for your application */
+
+header {
+  background: #39275b;
+
+  nav {
+    margin: 0 auto;
+    max-width: 1400px;    
+  }
+
+}
+
+.middle {
+  color: white;
+  margin: 0 auto;
+}
+
+
+.deleted {
+  background: #ff5555;
+  opacity: 0;
+  text-align: center;
+}
+
+footer {
+  height: 7em;
+  width: 100%;
+  background: #39275b;
+  padding: 0.5em;
+  position: relative;
+}
+#footer-logo {
+  margin: 0 auto;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  height: 6em;
+  width: 6em;
+  background: #ffffff url('husky_logo.png') 50% 50% no-repeat;
+  background-size: 95%;
+  z-index: 1;
+  position: relative;
+  border: 1px solid black;
+}
+#footer-band {
+  position: absolute;
+  top: 2em;
+  left: 0;
+  z-index: 0;
+  height: 3em;
+  width: 100%;
+  opacity: 0.5;
+  background: white;
+
+}

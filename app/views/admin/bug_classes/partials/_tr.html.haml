@@ -1,0 +1,10 @@
+= content_tag_for(:tr, bc) do
+  %td= link_to bc.name, bc
+  %td= bc.order
+  %td= bc.superclass ? (link_to bc.superclass.name, bc.superclass) : 'N/A'
+  %td
+    = link_to edit_admin_bug_class_path(bc) do
+      %i.fi-pencil
+  %td
+    = link_to admin_bug_class_path(bc), method: :delete, remote: true, data: {confirm: "Are you SURE you want to delete #{bc.name}?"} do
+      %i.fi-trash
