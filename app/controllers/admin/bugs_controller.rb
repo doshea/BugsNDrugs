@@ -4,7 +4,7 @@ class Admin::BugsController < ApplicationController
 
   def index
     @new_bug = Bug.new
-    @bug = Bug.all
+    @bugs = Bug.all
   end
 
   def create
@@ -13,7 +13,6 @@ class Admin::BugsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update

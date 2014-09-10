@@ -1,0 +1,15 @@
+.large-1.columns
+  = f.label :name
+.large-3.columns
+  = f.text_field :name
+.large-1.columns
+  = f.label :bug_class_id
+.large-3.columns
+  %select{name: 'bug_class[superclass_id]', id: 'bug_class[superclass_id]'}
+    = render partial: 'admin/bug_classes/partials/option', locals: {bc: BugClass.node_0}
+.large-1.columns
+  = f.label :order
+.large-1.columns
+  = f.number_field :order
+.large-2.columns
+  = f.submit 'Submit', class: 'button tiny'

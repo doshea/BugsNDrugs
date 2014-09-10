@@ -1,4 +1,6 @@
-- if bc.subclasses.any?
+- if bc.subclasses.any? || bc.bugs.any?
   %ul
     - bc.subclasses.each do |sc|
       = render partial: 'bug_classes/li', locals: {bc: sc}
+    - bc.bugs.each do |bug|
+      %li.bug= link_to bug.name, bug

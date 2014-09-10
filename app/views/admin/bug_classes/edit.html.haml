@@ -1,6 +1,2 @@
 = form_for @bc, url: admin_bug_class_path(@bc), method: :patch, remote: true do |f|
-  .large-12.columns
-    = f.label :name
-    = f.text_field :name
-  .large-12.columns
-    = f.submit class: 'button', data: {disable_with: 'Updating...'}
+  = render partial: 'admin/bug_classes/partials/form_contents', locals: {f: f}

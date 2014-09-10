@@ -1,6 +1,6 @@
 - if defined? skip_self
   = render partial: 'bug_classes/ul', locals: {bc: bc}
 - else
-  %li
+  %li.bug-class
     = link_to bc.name, bc
     = render partial: 'bug_classes/ul', locals: {bc: bc}

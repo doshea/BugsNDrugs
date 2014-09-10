@@ -13,7 +13,6 @@ class Admin::BugClassesController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
