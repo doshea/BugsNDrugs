@@ -3,14 +3,13 @@ class Admin::BugClassesController < ApplicationController
   before_action :find_bug_class, only: [:edit, :update, :destroy]
 
   def index
+    @bcs = BugClass.all
   end
 
   def new
-
   end
 
   def create
-
   end
 
   def edit
@@ -22,12 +21,16 @@ class Admin::BugClassesController < ApplicationController
   end
 
   def destroy
-
+    if @bc.destroy
+      alert_js('SUCCESS word deleted.')
+    else
+      alert_js('!!!ERROR deleting word!!!')
+    end
   end
 
   private
   def find_bug_class
-    @clue = Clue.find(params[:id])
+    @bc = BugClass.find(params[:id])
   end
 
 end

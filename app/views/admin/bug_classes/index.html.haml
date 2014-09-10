@@ -1,1 +1,20 @@
-= render partial: 'bug_classes/li', locals: {pc: BugClass.node_0, skip_self: true}
+%table
+  %thead
+    %tr
+      %th Name
+      %th Order
+      %th Superclass
+      %th
+      %th
+  %tbody
+    - @bcs.each do |bug_class|
+      = content_tag_for(:tr, bug_class) do
+        %td= link_to bug_class.name, bug_class
+        %td= bug_class.order
+        %td= bug_class.superclass ? (link_to bug_class.superclass.name, bug_class.superclass) : 'N/A'
+        %td
+          = link_to edit_admin_bug_class_path(bug_class) do
+            %i.fi-pencil
+        %td
+          = link_to admin_bug_class_path(bug_class), method: :delete, remote: true, data: {confirm: "Are you SURE you want to delete #{bug_class.name}?"} do
+            %i.fi-trash
