@@ -1,0 +1,4 @@
+- if bc.subclasses.any?
+  %ul
+    - bc.subclasses.each do |sc|
+      = render partial: 'bug_classes/li', locals: {bc: sc}
