@@ -1,5 +1,14 @@
-%h1 Log In
-.large-3.columns
+.large-12.columns
+  %p.alert-box.centered
+    FYI: An account is
+    %i not
+    required to use the site, only to add new bugs, drugs and symptoms
+    %br
+    \...but it's free and we'd love to have you!
+
+
+.large-3.columns.large-offset-1
+  %h1 Log In
   = form_tag '/login' do
     = label_tag :username
     = text_field_tag :username, nil, :autofocus => true
@@ -8,5 +17,19 @@
     = label_tag :remember_me
     = check_box_tag :remember_me, 1, params[:remember_me]
     %br
-    = submit_tag 'Log In', :class => 'button tiny radius success'
-.large-9.columns
+    = submit_tag 'Log In', :class => 'button radius'
+.large-2.columns.centered
+  %br
+  %br
+  %br
+  %br
+  %br
+  %br
+  %br
+  %br
+  %br
+  or
+.large-3.columns
+  %h2 Sign up!
+  = render partial: 'users/partials/form'
+.large-3.columns

@@ -19,18 +19,18 @@
       %li.divider
       %li
         = link_to bugs_path do
-          = image_tag 'icons/biohazard.svg', class: 'icon'
+          = image_tag asset_path('icons/biohazard.svg'), class: 'icon'
           Bugs
 
       %li.divider
       %li
         = link_to bug_classes_path do
-          = image_tag 'icons/drugs.svg', class: 'icon'
+          = image_tag asset_path('icons/drugs.svg'), class: 'icon'
           Drugs
       %li.divider
       %li
         = link_to bug_classes_path do
-          = image_tag 'icons/vomit.svg', class: 'icon'
+          = image_tag asset_path('icons/vomit.svg'), class: 'icon'
           Symptoms
       %li.divider      
       - if @current_user
@@ -44,16 +44,11 @@
                 Account
             %li
               = link_to login_path, method: :delete do
-                %i.fi-power
+                %i.fi-power{style: 'color: #f55;'}
                 Log out
       - else
         %li
-          = link_to new_user_path do
-            %i.fi-pencil
-            Register
-        %li.divider
-        %li
           = link_to login_path do
-            %i.fi-power
+            %i.fi-power{style: 'color: #5f5;'}
             Log in
       %li.divider
