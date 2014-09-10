@@ -6,6 +6,7 @@ BugsNDrugs::Application.routes.draw do
   delete '/login' => 'sessions#destroy'
 
   resources :users, only: [:new, :create]
+  resources :bugs, only: [:index, :show]
   resources :bug_classes, only: [:index, :show]
   
   namespace :account do
@@ -17,6 +18,7 @@ BugsNDrugs::Application.routes.draw do
   namespace :admin do
     get '/', to: :index
     resources :users, only: [:index, :edit, :update, :destroy]
+    resources :bugs, except: :show
     resources :bug_classes, except: :show
   end
 end

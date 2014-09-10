@@ -1,0 +1,6 @@
+= form_for @bug, url: admin_bug_path(@bc), method: :patch, remote: true do |f|
+  .large-12.columns
+    = f.label :name
+    = f.text_field :name
+  .large-12.columns
+    = f.submit class: 'button', data: {disable_with: 'Updating...'}

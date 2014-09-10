@@ -1,0 +1,7 @@
+var columns = $('table th').length;
+var new_contents = $("<td colspan='"+columns+"'>Deleted '<b><%= @bug.name %></b>'</td>").addClass('deleted');
+var row = $('#bug_<%= @bug.id %>');
+row.children().animate({opacity: 0}, 200, function(){
+  row.empty().append(new_contents);
+  new_contents.animate({opacity: 1}, 200);
+});

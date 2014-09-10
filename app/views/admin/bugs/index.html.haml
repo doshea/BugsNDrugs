@@ -1,0 +1,17 @@
+%h3 New Bug
+.row
+  = render partial: 'admin/bugs/partials/form', locals: {new_bug: @new_bug}
+%br
+%h3 Current Bugs
+.row
+  %table
+    %thead
+      %tr
+        %th Name
+        %th Order
+        %th Superclass
+        %th
+        %th
+    %tbody
+      - @bugs.each do |bug|
+        = render partial: 'admin/bugs/partials/tr', locals: {bug: bug}
