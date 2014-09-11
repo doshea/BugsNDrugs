@@ -1,3 +1,9 @@
-%ul.bug-list
-  - BugClass.top_tier.each do |bc|
-    = render partial: 'bug_classes/li', locals: {bc: bc}
+- BugClass.top_tier.each do |bc|
+  .bug-pane{id: bc.name.downcase}
+    %h2.centered= bc.name
+    %hr.mini
+    - bc.bug_classes.each do |sc|
+      .large-4.columns
+        %ul.bug-list
+          = render partial: 'bug_classes/li', locals: {bc: sc}
+  %hr

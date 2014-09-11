@@ -33,10 +33,10 @@
     border-left: 1px solid black;
     margin-bottom: 0;
   }
-  .tier-1 li, .tier-3 li, .tier-5 li{
+  .tier-1 > li, .tier-3 > li, .tier-5 > li, .tier-7 > li{
     background: white;
   }
-  .tier-2 li, .tier-4 li{
+  .tier-2 >li, .tier-4 > li, .tier-6 > li{
     background: whitesmoke;
   }
   li {
