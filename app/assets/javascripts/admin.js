@@ -7,7 +7,7 @@ function ready_stuff(){
     $('.new-object').hide()
     $('.name').show()
     $('.edit').hide()
-    $(this).closest('.bug_class').children('.new-object').toggle().focus();
+    $(this).closest('.bug_class').children('form').children('.new-object').toggle().focus();
   })
   $('body').on('click', '.bug-list .fi-pencil', function(e){
     e.preventDefault()

@@ -1,0 +1,21 @@
+= content_tag_for(:li, bc) do
+  %div.bar
+    %span.name= bc.name
+    = text_field_tag nil, bc.name, class: 'edit'
+    = link_to bc do
+      %i.fi-link
+    = link_to '' do
+      %i.fi-pencil
+    = link_to '' do
+      %i.fi-plus
+    - if bc.children.empty?
+      = link_to admin_bug_class_path(bc), method: :delete, remote: true, data: {confirm: "Are you SURE you want to delete #{bc.name}?"} do
+        %i.fi-trash
+
+  %ul{class: "tier-#{bc.tier}"}
+    - bc.bug_classes.each do |sc|
+      = render partial: 'admin/bug_classes/partials/li', locals: {bc: sc}
+  = form_tag add_bug_class_admin_bug_class_path(bc), remote: true, action: :post do
+    = text_field_tag('bug_class[name]', nil, class: 'new-object', placeholder: 'Enter a new Bug Class name', id: nil)
+    = number_field_tag 'id', bc.id, id: nil
+    = submit_tag

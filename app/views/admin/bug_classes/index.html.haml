@@ -1,4 +1,5 @@
-%h3 Current Bug Classes
-%ul.bug-list.admin
-  - BugClass.top_tier.each do |bc|
-    = render partial: 'admin/bug_classes/partials/list', locals: {list_root: true, bc: bc}
+%h3
+  Current Bug Classes
+  = link_to refresh_admin_bug_classes_path, remote: true, id: 'refresh-list' do
+    %i.fi-refresh
+= render partial: 'admin/bug_classes/partials/list'

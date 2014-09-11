@@ -1,9 +1,8 @@
 class Admin::BugClassesController < ApplicationController
   before_action :ensure_admin
-  before_action :find_bug_class, only: [:edit, :update, :destroy]
+  before_action :find_bug_class, only: [:edit, :update, :destroy, :add_bug_class]
 
   def index
-    @new_bc = BugClass.new
     @bcs = BugClass.all
   end
 
@@ -27,6 +26,14 @@ class Admin::BugClassesController < ApplicationController
     @bc.destroy
   end
 
+  def add_bug_class
+    @new_bc = @bc.add_child_class(new_bug_class_params[:name])
+  end
+
+  def refresh
+    @bcs = BugClass.all
+  end
+
   private
   def find_bug_class
     @bc = BugClass.find(params[:id])
@@ -34,6 +41,10 @@ class Admin::BugClassesController < ApplicationController
 
   def admin_params
     params.require(:bug_class).permit(:name, :order, :bug_class_id)
+  end
+
+  def new_bug_class_params
+    params.require(:bug_class).permit(:name)
   end
 
 end

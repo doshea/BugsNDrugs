@@ -19,6 +19,13 @@ BugsNDrugs::Application.routes.draw do
     get '/', to: :index
     resources :users, only: [:index, :edit, :update, :destroy]
     resources :bugs, except: :show
-    resources :bug_classes, except: :show
+    resources :bug_classes, except: :show do
+      member do
+        post :add_bug_class
+      end
+      collection do
+        get :refresh
+      end
+    end
   end
 end
