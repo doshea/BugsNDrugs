@@ -43,6 +43,14 @@ class BugClass < ActiveRecord::Base
     new_child_class
   end
 
+  def add_child_classes(children_array)
+    children_array.map{|child| add_child_class(child)}
+  end
+
+  def add_bugs(bug_array)
+    bug_array.each{|b| bugs << Bug.new(name: b)}
+  end
+
   private
   def highest_order_child
     bug_classes.pluck(:order).max || 0

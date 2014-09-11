@@ -26,9 +26,13 @@ class Bug < ActiveRecord::Base
 
   def abbreviated_initial
     array = name.split(' ')
-    first_word = array.shift
-    first_word = "#{first_word[0]}."
-    array.unshift(first_word).join(' ')
+    if array.length > 1
+      first_word = array.shift
+      first_word = "#{first_word[0]}."
+      array.unshift(first_word).join(' ')
+    else
+      name
+    end
   end
 
 
