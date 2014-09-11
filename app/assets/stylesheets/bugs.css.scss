@@ -10,6 +10,18 @@
 }
 
 .bug-list {
+  i {
+    opacity: 0;
+    -webkit-transition: opacity 0.2s;
+    -moz-transition: opacity 0.2s;
+    -o-transition: opacity 0.2s;
+    transition: opacity 0.2s;
+  }
+  .name {
+    &:hover i {
+      opacity: 1;
+    }
+  }
   .bug_class {
     background: whitesmoke;
     list-style-type: none;

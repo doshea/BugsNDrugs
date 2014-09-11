@@ -1,12 +1,13 @@
 = content_tag_for(:li, bc) do
-  %span.name= bc.name
-  = text_field_tag nil, bc.name, class: 'edit'
-  = link_to bc do
-    %i.fi-link
-  = link_to '' do
-    %i.fi-pencil
-  = link_to '' do
-    %i.fi-plus
+  .name
+    = bc.name
+    = text_field_tag nil, bc.name, class: 'edit'
+    = link_to bc do
+      %i.fi-link
+    = link_to '' do
+      %i.fi-pencil
+    = link_to '' do
+      %i.fi-plus
   - unless bc.children
     = link_to '#' do
       %i.fi-trash
