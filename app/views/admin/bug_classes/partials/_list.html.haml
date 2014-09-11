@@ -1,6 +1,6 @@
 = content_tag_for(:li, bc) do
-  .name
-    = bc.name
+  %div.bar
+    %span.name= bc.name
     = text_field_tag nil, bc.name, class: 'edit'
     = link_to bc do
       %i.fi-link

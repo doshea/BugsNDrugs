@@ -14,6 +14,6 @@ function ready_stuff(){
     $('.new-object').hide()
     $('.name').show()
     $('.edit').hide()
-    $(this).closest('.bug_class').children('.name').hide().siblings('.edit').show().focus();
+    $(this).parent().siblings('.name').hide().siblings('.edit').show().focus();
   })
 }
