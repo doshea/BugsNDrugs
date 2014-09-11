@@ -17,15 +17,19 @@ ActiveRecord::Schema.define(version: 20140910181122) do
   enable_extension "plpgsql"
 
   create_table "bug_classes", force: true do |t|
-    t.string   "name",          null: false
+    t.string   "name",         null: false
+    t.integer  "tier"
     t.integer  "order"
-    t.integer  "drug_class_id"
+    t.text     "image"
+    t.integer  "bug_class_id"
+    t.boolean  "pending"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "bugs", force: true do |t|
-    t.string   "name",              null: false
+    t.string   "name",                              null: false
+    t.string   "common_name"
     t.string   "gram_stain"
     t.string   "environment"
     t.string   "morphology"
@@ -34,22 +38,31 @@ ActiveRecord::Schema.define(version: 20140910181122) do
     t.string   "brief_description"
     t.text     "toxins"
     t.integer  "order"
+    t.text     "image"
     t.integer  "bug_class_id"
+    t.boolean  "motile",            default: false
+    t.boolean  "encapsulated",      default: false
+    t.boolean  "pending"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "drugs", force: true do |t|
+    t.boolean  "pending"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "symptoms", force: true do |t|
+    t.string   "name",       null: false
+    t.text     "image"
+    t.boolean  "pending"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "syndromes", force: true do |t|
+    t.boolean  "pending"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

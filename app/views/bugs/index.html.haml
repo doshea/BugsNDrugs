@@ -1,1 +1,3 @@
-= render partial: 'bug_classes/li', locals: {bc: BugClass.node_0, skip_self: true}
+%ul.bug-list
+  - BugClass.top_tier.each do |bc|
+    = render partial: 'bug_classes/li', locals: {bc: bc}

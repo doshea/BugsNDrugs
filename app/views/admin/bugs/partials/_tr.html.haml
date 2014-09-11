@@ -1,5 +1,8 @@
 = content_tag_for(:tr, bug) do
-  %td= link_to bug.name, bug
+  %td
+    = link_to bug do
+      %i.fi-link
+  %td= bug.name
   %td= bug.order
   %td= bug.bug_class ? (link_to bug.bug_class.name, bug.bug_class) : 'N/A'
   %td

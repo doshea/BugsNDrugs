@@ -1,17 +1,25 @@
-%h3 New Bug Class
-.row
-  = render partial: 'admin/bug_classes/partials/form', locals: {new_bc: @new_bc}
+= javascript_include_tag 'admin'
+
+-# %h3 New Bug Class
+-# .row
+-#   = render partial: 'admin/bug_classes/partials/form', locals: {new_bc: @new_bc}
 %br
 %h3 Current Bug Classes
-.row
-  %table
-    %thead
-      %tr
-        %th Name
-        %th Order
-        %th Drug Class
-        %th
-        %th
-    %tbody
-      - @bcs.each do |bc|
-        = render partial: 'admin/bug_classes/partials/tr', locals: {bc: bc}
+%ul.bug-list.admin
+  - BugClass.top_tier.each do |bc|
+    = render partial: 'admin/bug_classes/partials/list', locals: {list_root: true, bc: bc}
+-# %h3 Current Bug Classes
+-# .row
+-#   %table
+-#     %thead
+-#       %tr
+-#         %th Link
+-#         %th Name
+-#         %th Order
+-#         %th Tier
+-#         %th Bug Class
+-#         %th
+-#         %th
+-#     %tbody
+-#       - @bcs.each do |bc|
+-#         = render partial: 'admin/bug_classes/partials/tr', locals: {bc: bc}

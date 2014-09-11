@@ -1,0 +1,43 @@
+.gram.positive {
+  color: #350bad;
+  font-weight: 800;
+  border: 1px solid black;
+  font-size: larger;
+  &:before {
+    content: '+';
+    margin: 0.1em 0.2em;
+  }
+}
+
+.bug-list {
+  .bug_class {
+    background: whitesmoke;
+    list-style-type: none;
+  }
+  .bug {
+    background: white;
+  }
+  ul {
+    border-left: 1px solid black;
+    margin-bottom: 0;
+  }
+  .tier-1 li, .tier-3 li, .tier-5 li{
+    background: white;
+  }
+  .tier-2 li, .tier-4 li{
+    background: whitesmoke;
+  }
+  li {
+    padding-left: 0.5em;
+  }
+  &.admin{
+    li {
+      cursor: move;
+    }
+    input[type=text] {
+      display: none;
+      margin: 0;
+      width: auto;
+    }
+  }
+}

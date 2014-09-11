@@ -1,0 +1,16 @@
+= content_tag_for(:li, bc) do
+  %span.name= bc.name
+  = text_field_tag nil, bc.name, class: 'edit'
+  = link_to bc do
+    %i.fi-link
+  = link_to '' do
+    %i.fi-pencil
+  = link_to '' do
+    %i.fi-plus
+  - unless bc.children
+    = link_to '#' do
+      %i.fi-trash
+  %ul{class: "tier-#{bc.tier}"}
+    - bc.bug_classes.each do |sc|
+      = render partial: 'admin/bug_classes/partials/list', locals: {bc: sc}
+  = text_field_tag(nil, nil, class: 'new-object', placeholder: 'Enter a new Bug Class name')

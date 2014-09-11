@@ -1,17 +1,3 @@
 = render partial: 'layouts/errors', locals: {error_object: new_bug}
 = form_for new_bug, url: admin_bugs_path, method: :post, remote: true do |f|
-  .large-1.columns
-    = f.label :name
-  .large-3.columns
-    = f.text_field :name
-  .large-1.columns
-    = f.label :bug_class_id
-  .large-3.columns
-    %select{name: 'bug[bug_class_id]', id: 'bug[bug_class_id]'}
-      = render partial: 'admin/bug_classes/partials/option', locals: {bc: BugClass.node_0}
-  .large-1.columns
-    = f.label :order
-  .large-1.columns
-    = f.number_field :order
-  .large-2.columns
-    = f.submit 'Submit', class: 'button tiny'
+  = render partial: 'admin/bugs/partials/form_contents', locals: {f: f}

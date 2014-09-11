@@ -23,36 +23,57 @@ User.create(
   password_confirmation: 'qwerty'
 )
 
-bugs = BugClass.create(
-  name: BugClass.universal_class,
-  order: 1,
-  drug_class_id: nil
-)
-
 bacteria = BugClass.create(
   name: 'Bacteria',
+  tier: 1,
   order: 1
 )
 viruses = BugClass.create(
   name: 'Viruses',
+  tier: 1,
   order: 2
 )
 fungi = BugClass.create(
   name: 'Fungi',
+  tier: 1,
   order: 3
 )
 parasites = BugClass.create(
   name: 'Parasites',
+  tier: 1,
   order: 4
 )
-gram_pos = BugClass.create(
-  name: 'Gram Positive',
-  order: 1
-)
-gram_neg = BugClass.create(
-  name: 'Gram Negative',
-  order: 2
-)
 
-bugs.subclasses << [bacteria, viruses, fungi, parasites]
-bacteria.subclasses << [gram_pos, gram_neg]
+bact = ['Gram Positive', 'Gram Negative']
+gram_positives = ['Staphylococci', 'Streptococci', 'Enterococci', 'Sporulating', 'Filamentous']
+staphylococci = ['Staphylococcus aureus', 'Staphylococcus epidermidis', 'Staphylococcus saprophyticus', 'Staphylococcus lugdunensis']
+streptococci = ['Streptococcus pyogenes', 'Streptococcus agalactiae', 'Streptococcus pneumo', 'Streptococcus viridans', 'Streptococcus pneumoniae', 'Streptococcus bovis']
+enterococci = ['Enterococcus faecalis', 'Enterococcus faecium']
+filamentous = ['Actinomyces israelii', 'Nocardia asteroides']
+sporulating = ['Bacillus', 'Clostridia']
+bacilli = ['Bacillus anthracis', 'Bacillus cereus']
+clostridia = ['Clostridium perfringens','Clostridium diff', 'Clostridium tetani', 'Clostridium bolutinum']
+other_gram_pos = ['Listeria monocytogenes', 'Corynebacterium diphtheriae']
+
+gram_pos, gram_neg = bact.map{|b|bacteria.add_child_class(b)}
+staph, strep, entero, sporu, filam = gram_positives.map{|b| gram_pos.add_child_class(b)}
+bacill, clostrid = sporulating.map{|b| sporu.add_child_class(b)}
+
+staphylococci.each{|b| staph.bugs << Bug.create(name: b)}
+streptococci.each{|b| strep.bugs << Bug.create(name: b)}
+enterococci.each{|b| entero.bugs << Bug.create(name: b)}
+bacilli.each{|b| bacill.bugs << Bug.create(name: b)}
+clostridia.each{|b| clostrid.bugs << Bug.create(name: b)}
+filamentous.each{|b| filam.bugs << Bug.create(name: b)}
+other_gram_pos.each{|b| gram_pos.bugs << Bug.create(name: b)}
+
+
+
+
+
+
+
+
+
+
+

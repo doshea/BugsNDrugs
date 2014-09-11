@@ -33,7 +33,7 @@ class Admin::BugClassesController < ApplicationController
   end
 
   def admin_params
-    params.require(:bug_class).permit(:name, :order, :drug_class_id)
+    params.require(:bug_class).permit(:name, :order, :bug_class_id)
   end
 
 end

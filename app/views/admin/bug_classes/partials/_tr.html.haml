@@ -1,7 +1,11 @@
 = content_tag_for(:tr, bc) do
-  %td= link_to bc.name, bc
+  %td
+    = link_to bc do
+      %i.fi-link
+  %td= bc.name
   %td= bc.order
-  %td= bc.drug_class ? (link_to bc.drug_class.name, bc.drug_class) : 'N/A'
+  %td= bc.tier
+  %td= bc.bug_class ? (link_to bc.bug_class.name, bc.bug_class) : 'N/A'
   %td
     = link_to edit_admin_bug_class_path(bc) do
       %i.fi-pencil

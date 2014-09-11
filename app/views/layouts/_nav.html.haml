@@ -3,6 +3,9 @@
     %li.name
       %h1
         = link_to 'Bugs+Drugs', root_path
+    %li.toggle-topbar.menu-icon
+      =link_to '' do
+        %span Menu
   %section.top-bar-section
     -# Left Nav Section
     %ul.left
@@ -18,17 +21,20 @@
     %ul.right
       %li.divider
       %li
+        -# Icon is 'Biohazard' by Shailendra Chouhan from The Noun Project
         = link_to bugs_path do
           = image_tag asset_path('icons/biohazard.svg'), class: 'icon'
           Bugs
 
       %li.divider
       %li
+        -# Icon is 'Pills' by Alex AS from The Noun Project
         = link_to bug_classes_path do
           = image_tag asset_path('icons/drugs.svg'), class: 'icon'
           Drugs
       %li.divider
       %li
+        -# Icon is 'Vomiting' by Miranda Dempster from The Noun Project
         = link_to bug_classes_path do
           = image_tag asset_path('icons/vomit.svg'), class: 'icon'
           Symptoms

@@ -1,1 +1,2 @@
-= render partial: 'bug_classes/li', locals: {bc: @bc}
+%ul.bug-list
+  = render partial: 'bug_classes/li', locals: {bc: @bc, list_root: true}

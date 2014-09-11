@@ -1,0 +1,45 @@
+.large-1.columns
+  = f.label :name
+.large-3.columns
+  = f.text_field :name
+.large-1.columns
+  = f.label :bug_class_id
+.large-3.columns
+  %select{name: 'bug[bug_class_id]', id: 'bug[bug_class_id]'}
+    - BugClass.top_tier.each do |bc|
+      = render partial: 'admin/bug_classes/partials/option', locals: {bc: bc}
+.large-1.columns
+  = f.label :order
+.large-1.columns
+  = f.number_field :order
+.large-1.columns
+  = f.label :gram_stain
+.large-1.columns
+  = f.text_field :gram_stain
+.large-1.columns
+  = f.label :common_name
+.large-3.columns
+  = f.text_field :common_name
+.large-1.columns
+  = f.label :environment
+.large-3.columns
+  = f.text_field :environment
+.large-1.columns
+  = f.label :morphology
+.large-3.columns
+  = f.text_field :morphology
+.large-1.columns
+  = f.label :growth_pattern
+.large-3.columns
+  = f.text_field :growth_pattern
+.large-1.columns
+  = f.label :brief_description
+.large-3.columns
+  = f.text_field :brief_description
+.large-1.columns
+  = f.label :description
+.large-5.columns
+  = f.text_area :description
+
+.large-2.columns
+  = f.submit 'Submit', class: 'button tiny'
