@@ -13,6 +13,8 @@ gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
 
+gem 'foundation-rails'
+
 # Datatables is disables by default. To enable, uncomment this gem and its related js and css lines in application.js and .css
 # gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 

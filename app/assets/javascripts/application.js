@@ -1,8 +1,7 @@
-//= require foundation5/jquery
+//= require jquery
 //= require jquery_ujs
+//= require foundation
 //= require turbolinks
-// require foundation5/foundation.min
-// require foundation5/modernizr
 //
 // require underscore.min
 // require sugar.min
@@ -16,3 +15,5 @@
 // require dataTables/jquery.dataTables
 //
 //= require main
+//= require admin
+$(document).foundation();

@@ -3,12 +3,12 @@
   %head
     %meta{:charset => "utf-8"}
     %title BugsNDrugs
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
     = stylesheet_link_tag    "application", :media => "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
+    = javascript_include_tag "vendor/modernizr"
     = csrf_meta_tags
   %body
-    = javascript_include_tag asset_path('foundation5/foundation.min')
-    = javascript_include_tag asset_path('foundation5/modernizr')
     .body
       %header
         = render partial: 'layouts/nav'
@@ -16,7 +16,7 @@
         = yield
       / Foundation initialization javascript
       :javascript
-        $(document).foundation(null,null,null,null,true);
+        $(document).foundation();
 
       %footer
         #footer-logo
