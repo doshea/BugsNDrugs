@@ -93,6 +93,20 @@ picorna.add_bugs(['Polio', 'Enterovirus', 'HAV', 'Rhinovirus', 'Echovirus'])
 calici.add_bugs(['Noro', 'Sapo'])
 plus_ss_rna.add_bugs(['HEV', 'Astrovirus'])
 
+orthomyxo,paramyxo,bunya,arena,rabdo,filo = minus_ss_rna.add_child_classes(['Orthomyxo','Paramyxo','Bunya','Arena','Rabdo','Filo'])
+orthomyxo.add_bugs(['Influenza'])
+paramyxo.add_bugs(['Rubeola','Rubulla','Parainfluenza','RSV','hMPV'])
+bunya.add_bugs(['Hantavirus', 'Heartland'])
+arena.add_bugs(['Hemorrhagic Fevers', 'LCM','Lassa'])
+rabdo.add_bugs(['Lyssa'])
+filo.add_bugs(['Ebola','Marburg'])
+
+htlv = retroviruses.add_child_class('Human T-lymphotropic')
+htlv.add_bugs(['HTLV-1', 'HTLV-2'])
+retroviruses.add_bugs(['HIV'])
+
+partial_ds_dna.add_bugs(['HBV'])
+
 
 #Fungi
 yeast, mould, dimorphic = fungi.add_child_classes(['Yeast', 'Mould', 'Dimorphic'])
