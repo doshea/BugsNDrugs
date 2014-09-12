@@ -18,6 +18,9 @@ class BugClass < ActiveRecord::Base
 
   scope :top_tier, -> { where(tier: 1) }
 
+  def tiered_name
+    '-' * (tier - 1) + name
+  end
 
   def child_count
     # TODO make this use a counter, it is way too CPU intensive

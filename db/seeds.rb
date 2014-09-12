@@ -1,5 +1,6 @@
 User.delete_all
 BugClass.delete_all
+Bug.delete_all
 
 #creates a non-admin User
 User.create(
@@ -59,8 +60,41 @@ filamentous.add_bugs(['Actinomyces israelii', 'Nocardia asteroides'])
 gram_positives.add_bugs(['Listeria monocytogenes', 'Corynebacterium diphtheriae'])
 
 #Gram Neg
-gram_negatives = ['Diplococci', 'Coccoid Rods', 'Rods', '']
+gram_negatives = ['Diplococci', 'Coccoid Rods', 'Rods']
 
+
+
+#Viruses
+ds_dna, ss_dna, ds_rna, plus_ss_rna, minus_ss_rna, retroviruses, partial_ds_dna = viruses.add_child_classes(['I. ds-DNA','II. ss-DNA','III. ds-RNA','IV. (+) ss-RNA','V. (-) ss-RNA','VI. Retrovirus','VII. Partial ds-DNA'])
+
+pox, herpes, papilloma, polyoma = ds_dna.add_child_classes(['Pox', 'Herpes', 'Papilloma', 'Polyoma'])
+pox.add_bugs(['Smallpox', 'Vaccinia', 'Molluscum contagiosum'])
+herpes.add_bugs(['HSV1', 'HSV2', 'VZV', 'EBV', 'CMV', 'HHV6', 'HHV7', 'HHV8'])
+papilloma.add_bugs(['HPV'])
+polyoma.add_bugs(['JC', 'BK'])
+ds_dna.add_bugs(['Adenoma'])
+
+parvo, dependo = ss_dna.add_child_classes(['Parvo','Dependo'])
+parvo.add_bugs(['B19'])
+dependo.add_bugs(['Adeno-associated', 'Bocavirus'])
+
+reo = ds_rna.add_child_class('Reo')
+reo.add_bugs(['Rotavirus', 'Coltivirus'])
+
+corona, flavi, toga, picorna, calici = plus_ss_rna.add_child_classes(['Corona', 'Flavi', 'Toga', 'Picorna', 'Calici'])
+corona.add_bugs(['SARS', 'MERS'])
+flavi.add_bugs(['HCV', 'Dengue', 'Yellow', 'Powassan', 'West Nile', 'St. Louis'])
+alpha = toga.add_child_class('Alpha')
+alpha.add_bugs(['WEE','EEE','VEE','Chikungunya'])
+toga.add_bugs(['Rubella'])
+coxsackie = picorna.add_child_class('Coxsackie')
+coxsackie.add_bugs(['CAV', 'CBV'])
+picorna.add_bugs(['Polio', 'Enterovirus', 'HAV', 'Rhinovirus', 'Echovirus'])
+calici.add_bugs(['Noro', 'Sapo'])
+plus_ss_rna.add_bugs(['HEV', 'Astrovirus'])
+
+
+#Fungi
 yeast, mould, dimorphic = fungi.add_child_classes(['Yeast', 'Mould', 'Dimorphic'])
 
 candida, crypto = yeast.add_child_classes(yeasts = ['Candida', 'Cryptococcus'])

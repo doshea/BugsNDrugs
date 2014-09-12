@@ -1,4 +1,4 @@
 - selected = (@bc && (@bc.bug_class == bc)) || (@bug && (@bug.bug_class == bc))
-%option{value: bc.id, selected: selected}= bc.name
+%option{value: bc.id, selected: selected}= bc.tiered_name
 - bc.bug_classes.each do |sc|
   = render partial: 'admin/bug_classes/partials/option', locals: {bc: sc}
