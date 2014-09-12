@@ -88,3 +88,15 @@ footer {
 .bug {
   font-style: italic;
 }
+.magellan {
+  visibility: hidden;
+  text-align: center;
+  &:not(.fixed){
+    position: absolute;
+    top: 3em;
+  }
+  &.fixed{
+    visibility: visible;
+    border-bottom: 1px solid black;
+  }
+}

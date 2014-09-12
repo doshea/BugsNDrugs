@@ -1,6 +1,38 @@
-- bacteria, viruses, fungi, parasites = BugClass.top_tier
-%ul.public.bug-list
-  = render partial: 'admin/bug_classes/partials/top_tier', locals: {bc: bacteria}
-  = render partial: 'admin/bug_classes/partials/top_tier', locals: {bc: viruses, pattern: [[0,1,2],[3],[4,5,6]]}
-  = render partial: 'admin/bug_classes/partials/top_tier', locals: {bc: fungi}
-  = render partial: 'admin/bug_classes/partials/top_tier', locals: {bc: parasites}
+= cache('all_bugs') do
+  %div.magellan{"data-magellan-expedition" => "fixed"}
+    %dl.sub-nav
+      %dd{"data-magellan-arrival" => "bacteria"}
+        %a{href: "#bacteria"} Bacteria
+      %dd{"data-magellan-arrival" => "viruses"}
+        %a{href: "#viruses"} Viruses
+      %dd{"data-magellan-arrival" => "fungi"}
+        %a{href: "#fungi"} Fungi
+      %dd{"data-magellan-arrival" => "parasites"}
+        %a{href: "#parasites"} Parasites
+
+  - bacteria, viruses, fungi, parasites = BugClass.top_tier
+  %ul.public.bug-list
+    %a{name: 'bacteria', 'data-magellan-destination' => 'bacteria'}
+    = render partial: 'admin/bug_classes/partials/top_tier', locals: {bc: bacteria}
+    %a{name: 'viruses', 'data-magellan-destination' => 'viruses'}
+    = render partial: 'admin/bug_classes/partials/top_tier', locals: {bc: viruses, pattern: [[0,1,2],[3],[4,5,6]]}
+    %a{name: 'fungi', 'data-magellan-destination' => 'fungi'}
+    = render partial: 'admin/bug_classes/partials/top_tier', locals: {bc: fungi}
+
+    -# = render partial: 'admin/bug_classes/partials/top_tier', locals: {bc: parasites}
+  %a{name: 'parasites', 'data-magellan-destination' => 'parasites'}
+  %ul.public.bug-list
+    %li.tier-0{id: parasites.name.downcase}
+      %h2.centered= parasites.name
+      %hr.mini
+        .large-4.columns
+          %ul.firster
+            = render partial: 'bug_classes/li', locals: {bc: parasites.bug_classes[0]}
+        .large-4.columns
+          %ul.firster
+            = render partial: 'bug_classes/li', locals: {bc: parasites.bug_classes[1].bug_classes[0]}
+        .large-4.columns
+          %ul.firster
+            = render partial: 'bug_classes/li', locals: {bc: parasites.bug_classes[1].bug_classes[1]}
+            = render partial: 'bug_classes/li', locals: {bc: parasites.bug_classes[1].bug_classes[2]}
+    %hr

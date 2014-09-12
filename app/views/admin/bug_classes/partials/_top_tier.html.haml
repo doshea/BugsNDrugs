@@ -5,11 +5,11 @@
     - pattern.each do |col|
       .large-4.columns
         - col.each do |i|
-          %ul.bug-list
+          %ul.firster
             = render partial: 'bug_classes/li', locals: {bc: bc.bug_classes[i]}
   - else
     - bc.bug_classes.each do |sc|
       .large-4.columns
-        %ul.bug-list
+        %ul.firster
           = render partial: 'bug_classes/li', locals: {bc: sc}
 %hr

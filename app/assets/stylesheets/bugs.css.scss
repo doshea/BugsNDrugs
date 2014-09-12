@@ -40,8 +40,11 @@
     .bug {
       font-size: smaller;
     }
-    .tier-1:not(:first-child) {
+    .firster:not(:first-child) {
       border-top: 1px solid black;
+    }
+    .firster {
+      font-size: larger;
     }
   }
   &.admin{
