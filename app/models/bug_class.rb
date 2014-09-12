@@ -16,7 +16,7 @@ class BugClass < ActiveRecord::Base
   has_many :bug_classes
   has_many :bugs, -> { order(:order) }
 
-  scope :top_tier, -> { where(tier: 1) }
+  scope :top_tier, -> { where(tier: 0) }
 
   def tiered_name
     '-' * (tier - 1) + name

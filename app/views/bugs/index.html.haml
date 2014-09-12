@@ -1,9 +1,6 @@
-- BugClass.top_tier.each do |bc|
-  .bug-pane{id: bc.name.downcase}
-    %h2.centered= bc.name
-    %hr.mini
-    - bc.bug_classes.each do |sc|
-      .large-4.columns
-        %ul.bug-list
-          = render partial: 'bug_classes/li', locals: {bc: sc}
-  %hr
+- bacteria, viruses, fungi, parasites = BugClass.top_tier
+%ul.public.bug-list
+  = render partial: 'admin/bug_classes/partials/top_tier', locals: {bc: bacteria}
+  = render partial: 'admin/bug_classes/partials/top_tier', locals: {bc: viruses, pattern: [[0,1,2],[3],[4,5,6]]}
+  = render partial: 'admin/bug_classes/partials/top_tier', locals: {bc: fungi}
+  = render partial: 'admin/bug_classes/partials/top_tier', locals: {bc: parasites}

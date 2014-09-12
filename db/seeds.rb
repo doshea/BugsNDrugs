@@ -26,22 +26,22 @@ User.create(
 
 bacteria = BugClass.create(
   name: 'Bacteria',
-  tier: 1,
+  tier: 0,
   order: 1
 )
 viruses = BugClass.create(
   name: 'Viruses',
-  tier: 1,
+  tier: 0,
   order: 2
 )
 fungi = BugClass.create(
   name: 'Fungi',
-  tier: 1,
+  tier: 0,
   order: 3
 )
 parasites = BugClass.create(
   name: 'Parasites',
-  tier: 1,
+  tier: 0,
   order: 4
 )
 

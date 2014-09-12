@@ -24,7 +24,6 @@
   }
   .bug_class {
     background: whitesmoke;
-    list-style-type: none;
   }
   .bug {
     background: white;
@@ -33,14 +32,17 @@
     border-left: 1px solid black;
     margin-bottom: 0;
   }
-  .tier-1 > li, .tier-3 > li, .tier-5 > li, .tier-7 > li{
-    background: white;
-  }
-  .tier-2 >li, .tier-4 > li, .tier-6 > li{
-    background: whitesmoke;
-  }
   li {
     padding-left: 0.5em;
+    list-style-type: none;
+  }
+  &.public {
+    .bug {
+      font-size: smaller;
+    }
+    .tier-1:not(:first-child) {
+      border-top: 1px solid black;
+    }
   }
   &.admin{
     li {
@@ -50,6 +52,12 @@
       display: none;
       margin: 0;
       width: auto;
+    }
+    .tier-1 > li, .tier-3 > li, .tier-5 > li, .tier-7 > li{
+      background: whitesmoke;
+    }
+    .tier-2 >li, .tier-4 > li, .tier-6 > li{
+      background: white;
     }
   }
 }

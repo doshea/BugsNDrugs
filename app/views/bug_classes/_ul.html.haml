@@ -1,5 +1,5 @@
 - if bc.bug_classes.any? || bc.bugs.any?
-  %ul
+  %ul{class: "tier-#{bc.tier}"}
     - bc.bug_classes.each do |sc|
       = render partial: 'bug_classes/li', locals: {bc: sc}
     - bc.bugs.each do |bug|
