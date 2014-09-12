@@ -158,11 +158,6 @@ toxocara.add_bugs(['Toxocara cani', 'Toxocara cati'])
 filarioidea.add_bugs(['Wucheria bancrofti', 'Brugia malayi', 'Loa loa', 'Onchocerca volvulus'])
 tissue_n.add_bugs(['Trichinella spiralis', 'Anisakis', 'Dracunculiasis'])
 
-
-
-
-
-
 taeniasis = cestodes.add_child_class('Taeniasis')
 taeniasis.add_bugs(['Taeniasis saginata', 'Taeniasis solium'])
 cestodes.add_bugs(['Echinococcus granulosus', 'Diphyllobothrium', 'Hymenolopiasis nana'])

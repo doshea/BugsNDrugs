@@ -1,4 +1,4 @@
-= cache('all_bugs') do
+= cache do
   %div.magellan{"data-magellan-expedition" => "fixed"}
     %dl.sub-nav
       %dd{"data-magellan-arrival" => "bacteria"}
@@ -11,19 +11,74 @@
         %a{href: "#parasites"} Parasites
 
   - bacteria, viruses, fungi, parasites = BugClass.top_tier
+  %a{name: 'bacteria', 'data-magellan-destination' => 'bacteria'}
   %ul.public.bug-list
-    %a{name: 'bacteria', 'data-magellan-destination' => 'bacteria'}
-    = render partial: 'admin/bug_classes/partials/top_tier', locals: {bc: bacteria}
-    %a{name: 'viruses', 'data-magellan-destination' => 'viruses'}
-    = render partial: 'admin/bug_classes/partials/top_tier', locals: {bc: viruses, pattern: [[0,1,2],[3],[4,5,6]]}
-    %a{name: 'fungi', 'data-magellan-destination' => 'fungi'}
-    = render partial: 'admin/bug_classes/partials/top_tier', locals: {bc: fungi}
+    %li.tier-0{id: bacteria.name.downcase}
+      %h2.centered
+        = image_tag asset_path('icons/bacteria.svg')
+        = bacteria.name
+      %hr.mini
+        .large-4.columns
+          %ul.firster
+            = render partial: 'bug_classes/li', locals: {bc: bacteria.bug_classes[0]}
+        .large-4.columns
+          %ul.firster
+            = render partial: 'bug_classes/li', locals: {bc: bacteria.bug_classes[1]}
+        .large-4.columns
+          %ul.firster
+            = render partial: 'bug_classes/li', locals: {bc: bacteria.bug_classes[1]}
+    %hr
+
+  %a{name: 'viruses', 'data-magellan-destination' => 'viruses'}
+  %ul.public.bug-list
+    %li.tier-0{id: viruses.name.downcase}
+      %h2.centered
+        = image_tag asset_path('icons/virus.svg')
+        = viruses.name
+      %hr.mini
+        .large-4.columns
+          %ul.firster
+            = render partial: 'bug_classes/li', locals: {bc: viruses.bug_classes[0]}
+            = render partial: 'bug_classes/li', locals: {bc: viruses.bug_classes[1]}
+            = render partial: 'bug_classes/li', locals: {bc: viruses.bug_classes[2]}
+        .large-4.columns
+          %ul.firster
+            = render partial: 'bug_classes/li', locals: {bc: viruses.bug_classes[3]}
+        .large-4.columns
+          %ul.firster
+            = render partial: 'bug_classes/li', locals: {bc: viruses.bug_classes[4]}
+            = render partial: 'bug_classes/li', locals: {bc: viruses.bug_classes[5]}
+            = render partial: 'bug_classes/li', locals: {bc: viruses.bug_classes[6]}
+    %hr
+  %a{name: 'fungi', 'data-magellan-destination' => 'fungi'}
+  %ul.public.bug-list
+    %li.tier-0{id: fungi.name.downcase}
+      %h2.centered
+        = image_tag asset_path('icons/fungus.svg')
+        = fungi.name
+      %hr.mini
+        .large-4.columns
+          %ul.firster
+            = render partial: 'bug_classes/li', locals: {bc: fungi.bug_classes[0]}
+        .large-4.columns
+          %ul.firster
+            = render partial: 'bug_classes/li', locals: {bc: fungi.bug_classes[1]}
+        .large-4.columns
+          %ul.firster
+            = render partial: 'bug_classes/li', locals: {bc: fungi.bug_classes[2]}
+    %hr
+
+  -# %ul.public.bug-list
+    -# %a{name: 'bacteria', 'data-magellan-destination' => 'bacteria'}
+    -# = render partial: 'admin/bug_classes/partials/top_tier', locals: {bc: bacteria}
 
     -# = render partial: 'admin/bug_classes/partials/top_tier', locals: {bc: parasites}
   %a{name: 'parasites', 'data-magellan-destination' => 'parasites'}
   %ul.public.bug-list
     %li.tier-0{id: parasites.name.downcase}
-      %h2.centered= parasites.name
+      %h2.centered
+        = image_tag asset_path('icons/worms.svg')
+        = parasites.name
       %hr.mini
         .large-4.columns
           %ul.firster

@@ -1,8 +1,9 @@
-%p
+%ul.breadcrumbs
   - @lineage.each do |ancestor|
-    = link_to ancestor.name, ancestor, class: 'bug_class'
-    >
-  = @bug.abbreviated_initial
+    %li
+      = link_to ancestor.name, ancestor
+  %li
+    = link_to @bug.abbreviated_initial, ''
 %h1.bug
   %span.gram{class: @bug.gram_stain}
   = @bug.name
