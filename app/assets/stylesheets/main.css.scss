@@ -97,6 +97,25 @@ footer {
   }
   &.fixed{
     visibility: visible;
+    dl {
+      display: inline-block;
+    }
     border-bottom: 1px solid black;
   }
+}
+
+
+#beezy {
+  // border: 1px solid black;
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  margin: 0;
+  padding: 0;
+  line-height: 1.75em;
+  font-weight: 300;
+  cursor: default;
+  -webkit-border-radius: 1em;
+  -moz-border-radius: 1em;
+  border-radius: 1em;
 }

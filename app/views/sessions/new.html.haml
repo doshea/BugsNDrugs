@@ -1,24 +1,29 @@
-.large-12.columns
-  %p.alert-box.centered
-    FYI: An account is
+.small-12.columns
+  %p.alert-box.text-center.secondary{data: {alert: true}}
+    %a.close{href:'#'} &times;
+    %b FYI
+    \: An account is
     %i not
     required to use the site, only to add new bugs, drugs and symptoms
     %br
     \...but it's free and we'd love to have you!
 
 
-.large-3.columns.large-offset-1
-  %h1 Log In
+.small-3.columns.small-offset-1
+  %h1.text-center Log In
   = form_tag '/login' do
     = label_tag :username
     = text_field_tag :username, nil, :autofocus => true
     = label_tag :password
     = password_field_tag :password
-    = label_tag :remember_me
-    = check_box_tag :remember_me, 1, params[:remember_me]
+    .row
+      .small-1.columns.small-offset-1
+        = check_box_tag :remember_me, 1, params[:remember_me]
+      .small-10.columns
+        = label_tag :remember_me, 'Remember me on this computer'
     %br
     = submit_tag 'Log In', :class => 'button radius'
-.large-2.columns.centered
+.small-2.columns.centered
   %br
   %br
   %br
@@ -28,8 +33,8 @@
   %br
   %br
   %br
-  or
-.large-3.columns
-  %h2 Sign up!
+  #beezy.button.secondary or
+.small-3.columns
+  %h2.text-center Sign up!
   = render partial: 'users/partials/form'
-.large-3.columns
+.small-3.columns

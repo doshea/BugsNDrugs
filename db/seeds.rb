@@ -45,7 +45,7 @@ parasites = BugClass.create(
   order: 4
 )
 
-gram_positives, gram_negatives = bacteria.add_child_classes(['Gram Positive', 'Gram Negative'])
+gram_positives, gram_negatives, atypical_acid, spirochetes = bacteria.add_child_classes(['Gram Positive', 'Gram Negative', 'Atypical Acid-Fast', 'Spirochetes'])
 
 #Gram Pos
 staph, strep, enterococci, sporulating, filamentous = gram_positives.add_child_classes(['Staphylococcus', 'Streptococcus', 'Enterococcus', 'Sporulating', 'Filamentous'])
@@ -59,8 +59,26 @@ clostridia.add_bugs(['Clostridium perfringens','Clostridium diff', 'Clostridium 
 filamentous.add_bugs(['Actinomyces israelii', 'Nocardia asteroides'])
 gram_positives.add_bugs(['Listeria monocytogenes', 'Corynebacterium diphtheriae'])
 
+#Atypical
+mycobacteria = atypical_acid.add_child_class('Mycobacteria')
+mycobacteria.add_bugs(['Mycobacterium tuberculosis', 'Mycobacterium leprae'])
+atypical_acid.add_bugs(['Mycoplasma pneumoniae'])
+
 #Gram Neg
-gram_negatives = ['Diplococci', 'Coccoid Rods', 'Rods']
+cocci, aerobic_coccobacilli, zoonoses, opportunistic = gram_negatives.add_child_classes(['Cocci', 'Aerobic Coccobacilli','Zoonoses', 'Opportunistic'])
+
+cocci.add_bugs(['Neisseria meningitidis', 'Neisseria gonorrohoea'])
+
+aerobic_coccobacilli.add_bugs(['Haemophilus influenzae', 'Bordatella pertussis', 'Listeria monocytogenes'])
+
+
+
+
+borrelia = spirochetes.add_child_class('Borrelia')
+borrelia.add_bugs(['Borrelia burgdorferi', 'Borrelia hermsii', 'Borrelia recurrentis'])
+
+#Spirochetes
+spirochetes.add_bugs(['Leptospira interogans', 'Treponema pallidum', 'Haemophilus ducreyi'])
 
 
 

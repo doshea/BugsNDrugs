@@ -3,13 +3,13 @@
   %hr.mini
   - if defined? pattern
     - pattern.each do |col|
-      .large-4.columns
+      .small-4.columns
         - col.each do |i|
           %ul.firster
             = render partial: 'bug_classes/li', locals: {bc: bc.bug_classes[i]}
   - else
     - bc.bug_classes.each do |sc|
-      .large-4.columns
+      .small-4.columns
         %ul.firster
           = render partial: 'bug_classes/li', locals: {bc: sc}
 %hr
