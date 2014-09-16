@@ -13,13 +13,18 @@
 #  brief_description :string(255)
 #  toxins            :text
 #  order             :integer
+#  image             :text
 #  bug_class_id      :integer
+#  motile            :boolean          default(FALSE)
+#  encapsulated      :boolean          default(FALSE)
+#  pending           :boolean
 #  created_at        :datetime
 #  updated_at        :datetime
 #
 
 class Bug < ActiveRecord::Base
   belongs_to :bug_class
+  belongs_to :branch, class_name: 'BugClass', foreign_key: 'bug_class_id'
   
   has_and_belongs_to_many :symptoms
   has_and_belongs_to_many :syndromes

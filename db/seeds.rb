@@ -1,6 +1,8 @@
 User.delete_all
 BugClass.delete_all
 Bug.delete_all
+DrugClass.delete_all
+Drug.delete_all
 
 #creates a non-admin User
 User.create(
@@ -24,28 +26,14 @@ User.create(
   password_confirmation: 'qwerty'
 )
 
-bacteria = BugClass.create(
-  name: 'Bacteria',
-  tier: 0,
-  order: 1
-)
-viruses = BugClass.create(
-  name: 'Viruses',
-  tier: 0,
-  order: 2
-)
-fungi = BugClass.create(
-  name: 'Fungi',
-  tier: 0,
-  order: 3
-)
-parasites = BugClass.create(
-  name: 'Parasites',
-  tier: 0,
-  order: 4
-)
+###BUGS##
 
-gram_positives, gram_negatives, atypical_acid, spirochetes = bacteria.add_child_classes(['Gram Positive', 'Gram Negative', 'Atypical Acid-Fast', 'Spirochetes'])
+bacteria = BugClass.create(name: 'Bacteria',tier: 0,order: 1)
+viruses = BugClass.create(name: 'Viruses',tier: 0,order: 2)
+fungi = BugClass.create(name: 'Fungi',tier: 0,order: 3)
+parasites = BugClass.create(name: 'Parasites',tier: 0,order: 4)
+
+gram_positives, gram_negatives, atypical_acid = bacteria.add_child_classes(['Gram Positive', 'Gram Negative', 'Atypical Acid-Fast'])
 
 #Gram Pos
 staph, strep, enterococci, sporulating, filamentous = gram_positives.add_child_classes(['Staphylococcus', 'Streptococcus', 'Enterococcus', 'Sporulating', 'Filamentous'])
@@ -65,7 +53,7 @@ mycobacteria.add_bugs(['Mycobacterium tuberculosis', 'Mycobacterium leprae'])
 atypical_acid.add_bugs(['Mycoplasma pneumoniae'])
 
 #Gram Neg
-cocci, aerobic_coccobacilli, zoonoses, opportunistic = gram_negatives.add_child_classes(['Cocci', 'Aerobic Coccobacilli','Zoonoses', 'Opportunistic'])
+cocci, aerobic_coccobacilli, zoonoses, opportunistic, spirochetes = gram_negatives.add_child_classes(['Cocci', 'Aerobic Coccobacilli','Zoonoses', 'Opportunistic', 'Spirochetes'])
 
 cocci.add_bugs(['Neisseria meningitidis', 'Neisseria gonorrohoea'])
 
@@ -185,6 +173,35 @@ schisto = blood_flukes.add_child_class('Schistoma')
 schisto.add_bugs(['Schistoma mansoni','Schistoma haemotobium','Schistoma japonicum'])
 tissue_flukes.add_bugs(['Paragonimus','Clonorchis','Fasciola'])
 intestine_flukes.add_bugs(['Fasciolopsis'])
+
+###DRUGS###
+antimicrobials = DrugClass.create(name: 'Antimicrobials', tier: 0, order: 1)
+antibacterials, antivirals, antifungals, antiparasitics = antimicrobials.add_child_classes(['Antibacterials', 'Antivirals', 'Antifungals','Antiparasitics'])
+
+cell_wall_inhibs, membrane_depolarizers, translation_inhibitors, fluoroquinolones, RNA_synthase_inhibitors, dna_damagers, antimetabolites = antibacterials.add_child_classes(['Cell Wall Inhibitors', 'Membrane Depolarizers','Translation Inhibitors', 'Fluoroquinolones', 'DNA Damagers', 'Antimetabolites'])
+
+penicillins, cephalosporins, carbapenems, beta_lactamase_inhibitors = cell_wall_inhibs.add_child_classes(['Penicillins', 'Cephalosporins', 'Carbapenems', 'β Lactamase Inhibitors'])
+penicillins.add_leafs(['Penicillin G', 'Methicillin', 'Nafcillin', 'Oxacillin', 'Ampicillin', 'Amoxicillin','Pipericillin', 'Ticaricillin'])
+ceph_genI, ceph_genIII, ceph_genIV = cephalosporins.add_child_classes(['Gen I', 'Gen III', 'Gen IV'])
+ceph_genI.add_leafs(['Cefazolin', 'Cephalexin'])
+ceph_genIII.add_leafs(['Ceftriaxone', 'Cefixime'])
+ceph_genIV.add_leafs(['Cefepime', 'Ceftaroline'])
+carbapenems.add_leafs(['Imipenem', 'Doripenem', 'Meropenem', 'Ertapenem'])
+beta_lactamase_inhibitors.add_leafs(['Clavulanic acid','sulbactam','tazobactam'])
+cell_wall_inhibs.add_leafs(['Vancomycin','Fosfomycin','Bacitracin','Cycloserine'])
+membrane_depolarizers.add_leafs(['Daptomycin'])
+
+inhib_30s, inhib_50s = translation_inhibitors.add_child_classes(['30S inhibitors','50S inhibitors'])
+tetracyclines, aminoglycosides = inhib_30s.add_child_classes(['Tetracyclines', 'Aminoglycosides'])
+macrolides, lincosamide, streptogramins = inhib_50s.add_child_classes(['Macrolides', 'Lincosamide', 'Streptogramins'])
+tetracyclines.add_leafs(['Tetracycline','Doxycycline','Minocycline','Tigecycline'])
+aminoglycosides.add_leafs(['Gentamycin','Tobramycin','Amikacin','Streptomycin','Neomycin','Spectinomycin'])
+macrolides.add_leafs(['Erythromycin','Azithromycin','Clarithromycin','Telithromycin','Fidaxomycin'])
+lincosamide.add_leafs(['Clindamycin'])
+streptogramins.add_leafs(['Quinupristin-dalfopristin','Chloramphenicol'])
+inhib_50s.add_leafs(['Linezolid'])
+
+fluoroquinolones.add_leafs(['Norfloxacin','Ciprofloxacin','Ofloxacin','Levofloxacin','Gemifloxacin','Moxifloxacin'])
 
 
 

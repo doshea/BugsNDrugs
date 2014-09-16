@@ -15,63 +15,68 @@
   %ul.public.bug-list
     %li.tier-0{id: bacteria.name.downcase}
       %h2.centered
+        -# Icon is 'Bacteria' by hunotika from The Noun Project
         = image_tag asset_path('icons/bacteria.svg'), class: 'bug-icon'
         = bacteria.name
       %hr.mini
         .small-4.columns
           %ul.firster
-            = render partial: 'bug_classes/li', locals: {bc: bacteria.bug_classes[0]}
+            = render partial: 'partials/li', locals: {bc: bacteria.subclasses[0], bug_or_drug: true}
           %ul.firster
-            = render partial: 'bug_classes/li', locals: {bc: bacteria.bug_classes[2]}
-        .small-4.columns
-          %ul.firster
-            = render partial: 'bug_classes/li', locals: {bc: bacteria.bug_classes[1]}
-        .small-4.columns
-          %ul.firster
-            = render partial: 'bug_classes/li', locals: {bc: bacteria.bug_classes[3]}
+            = render partial: 'partials/li', locals: {bc: bacteria.subclasses[2], bug_or_drug: true}
+        .small-8.columns
+          = render partial: 'partials/multicolumn', locals: {bc: bacteria.subclasses[1], bug_or_drug: true, splits: [(0..1), (2..4)]}
+        -# .small-4.columns
+        -#   %ul.firster
+        -#     = render partial: 'partials/li', locals: {bc: bacteria.subclasses[1], bug_or_drug: true}
+        -# .small-4.columns
+        -#   %ul.firster
+        -#     = render partial: 'partials/li', locals: {bc: bacteria.subclasses[3], bug_or_drug: true}
     %hr
 
   %a{name: 'viruses', 'data-magellan-destination' => 'viruses'}
   %ul.public.bug-list
     %li.tier-0{id: viruses.name.downcase}
       %h2.centered
+        -# Icon is 'Virus' by Anu Prasadh Raja from The Noun Project
         = image_tag asset_path('icons/virus.svg'), class: 'bug-icon'
         = viruses.name
       %hr.mini
         .small-4.columns
           %ul.firster
-            = render partial: 'bug_classes/li', locals: {bc: viruses.bug_classes[0]}
+            = render partial: 'partials/li', locals: {bc: viruses.subclasses[0], bug_or_drug: true}
           %ul.firster
-            = render partial: 'bug_classes/li', locals: {bc: viruses.bug_classes[1]}
+            = render partial: 'partials/li', locals: {bc: viruses.subclasses[1], bug_or_drug: true}
           %ul.firster
-            = render partial: 'bug_classes/li', locals: {bc: viruses.bug_classes[2]}
+            = render partial: 'partials/li', locals: {bc: viruses.subclasses[2], bug_or_drug: true}
         .small-4.columns
           %ul.firster
-            = render partial: 'bug_classes/li', locals: {bc: viruses.bug_classes[3]}
+            = render partial: 'partials/li', locals: {bc: viruses.subclasses[3], bug_or_drug: true}
         .small-4.columns
           %ul.firster
-            = render partial: 'bug_classes/li', locals: {bc: viruses.bug_classes[4]}
+            = render partial: 'partials/li', locals: {bc: viruses.subclasses[4], bug_or_drug: true}
           %ul.firster
-            = render partial: 'bug_classes/li', locals: {bc: viruses.bug_classes[5]}
+            = render partial: 'partials/li', locals: {bc: viruses.subclasses[5], bug_or_drug: true}
           %ul.firster
-            = render partial: 'bug_classes/li', locals: {bc: viruses.bug_classes[6]}
+            = render partial: 'partials/li', locals: {bc: viruses.subclasses[6], bug_or_drug: true}
     %hr
   %a{name: 'fungi', 'data-magellan-destination' => 'fungi'}
   %ul.public.bug-list
     %li.tier-0{id: fungi.name.downcase}
       %h2.centered
+        -# Icon is 'Mushroom' by Monika Ciapala from The Noun Project
         = image_tag asset_path('icons/fungus.svg'), class: 'bug-icon'
         = fungi.name
       %hr.mini
         .small-4.columns
           %ul.firster
-            = render partial: 'bug_classes/li', locals: {bc: fungi.bug_classes[0]}
+            = render partial: 'partials/li', locals: {bc: fungi.subclasses[0], bug_or_drug: true}
         .small-4.columns
           %ul.firster
-            = render partial: 'bug_classes/li', locals: {bc: fungi.bug_classes[1]}
+            = render partial: 'partials/li', locals: {bc: fungi.subclasses[1], bug_or_drug: true}
         .small-4.columns
           %ul.firster
-            = render partial: 'bug_classes/li', locals: {bc: fungi.bug_classes[2]}
+            = render partial: 'partials/li', locals: {bc: fungi.subclasses[2], bug_or_drug: true}
     %hr
 
   -# %ul.public.bug-list
@@ -83,17 +88,20 @@
   %ul.public.bug-list
     %li.tier-0{id: parasites.name.downcase}
       %h2.centered
+        -# Icon is 'Worm' by Ana María Lora Macias from The Noun Project
         = image_tag asset_path('icons/worms.svg'), class: 'bug-icon'
         = parasites.name
       %hr.mini
         .small-4.columns
           %ul.firster
-            = render partial: 'bug_classes/li', locals: {bc: parasites.bug_classes[0]}
-        .small-4.columns
-          %ul.firster
-            = render partial: 'bug_classes/li', locals: {bc: parasites.bug_classes[1].bug_classes[0]}
-        .small-4.columns
-          %ul.firster
-            = render partial: 'bug_classes/li', locals: {bc: parasites.bug_classes[1].bug_classes[1]}
-            = render partial: 'bug_classes/li', locals: {bc: parasites.bug_classes[1].bug_classes[2]}
+            = render partial: 'partials/li', locals: {bc: parasites.subclasses[0], bug_or_drug: true}
+        .small-8.columns
+          = render partial: 'partials/multicolumn', locals: {bc: parasites.subclasses[1], bug_or_drug: true, splits: [(0..0), (1..2)]}
+        -# .small-4.columns
+        -#   %ul.firster
+        -#     = render partial: 'partials/li', locals: {bc: parasites.subclasses[1].subclasses[0], bug_or_drug: true}
+        -# .small-4.columns
+        -#   %ul.firster
+        -#     = render partial: 'partials/li', locals: {bc: parasites.subclasses[1].subclasses[1], bug_or_drug: true}
+        -#     = render partial: 'partials/li', locals: {bc: parasites.subclasses[1].subclasses[2], bug_or_drug: true}
     %hr

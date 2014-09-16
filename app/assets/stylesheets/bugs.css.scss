@@ -12,7 +12,7 @@
   height: 1em;
 }
 
-.bug-list {
+.bug-list, .drug-list {
   i {
     opacity: 0;
     -webkit-transition: opacity 0.2s;
@@ -20,15 +20,25 @@
     -o-transition: opacity 0.2s;
     transition: opacity 0.2s;
   }
+  h5{
+    background: #ccc;
+    margin: 0 0 0 1.1em;
+    // border-left: 1px solid black;
+    // padding-bottom: 0.25em;
+
+    a {
+      color: #555;
+    }
+  }
   .bar {
     &:hover i {
       opacity: 1;
     }
   }
-  .bug_class {
+  .bug_class, .drug_class {
     background: whitesmoke;
   }
-  .bug {
+  .bug, .drug {
     background: white;
   }
   ul {
@@ -40,7 +50,7 @@
     list-style-type: none;
   }
   &.public {
-    .bug {
+    .bug, .drug {
       font-size: smaller;
     }
     .firster:not(:first-child) {

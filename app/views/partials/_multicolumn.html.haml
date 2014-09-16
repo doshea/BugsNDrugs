@@ -1,0 +1,8 @@
+.small-12.columns.text-center
+  %h5
+    = link_to bc.name, bc
+- splits.each do |split|
+  .columns{class: "small-#{12/splits.length}"}
+    - split.each do |index|
+      %ul
+        = render partial: 'partials/li', locals: {bc: bc.subclasses[index], bug_or_drug: bug_or_drug}

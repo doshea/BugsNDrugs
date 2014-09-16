@@ -8,6 +8,8 @@ BugsNDrugs::Application.routes.draw do
   resources :users, only: [:new, :create]
   resources :bugs, only: [:index, :show]
   resources :bug_classes, only: [:index, :show]
+  resources :drugs, only: [:index, :show]
+  resources :drug_classes, only: [:index, :show]
   
   namespace :account do
     get '/', to: :show
@@ -19,6 +21,8 @@ BugsNDrugs::Application.routes.draw do
     get '/', to: :index
     resources :users, only: [:index, :edit, :update, :destroy]
     resources :bugs, except: :show
+    resources :drugs, except: :show
+    resources :drug_classes, except: :show
     resources :bug_classes, except: :show do
       member do
         post :add_bug_class

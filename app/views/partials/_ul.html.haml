@@ -1,0 +1,7 @@
+- if bc.subclasses.any? || bc.leafs.any?
+  %ul{class: "tier-#{bc.tier}"}
+    - bc.subclasses.each do |sc|
+      = render partial: 'partials/li', locals: {bc: sc, bug_or_drug: bug_or_drug}
+    - bc.leafs.each do |leaf|
+      %li{class: bug_or_drug ? 'bug' : 'drug'}
+        = link_to (bug_or_drug ? leaf.abbreviated_initial : leaf.generic_name), leaf

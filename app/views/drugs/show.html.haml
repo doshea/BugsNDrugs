@@ -1,0 +1,8 @@
+%ul.breadcrumbs
+  - @lineage.each do |ancestor|
+    %li
+      = link_to (ancestor.name || ancestor.generic_name), ancestor
+  %li
+    = link_to @drug.generic_name, ''
+%h1.drug
+  = @drug.generic_name

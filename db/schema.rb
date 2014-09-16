@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140910181122) do
+ActiveRecord::Schema.define(version: 20140915060954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,18 +39,40 @@ ActiveRecord::Schema.define(version: 20140910181122) do
     t.text     "toxins"
     t.integer  "order"
     t.text     "image"
-    t.integer  "bug_class_id"
     t.boolean  "motile",            default: false
     t.boolean  "encapsulated",      default: false
     t.boolean  "pending"
+    t.integer  "bug_class_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "drug_classes", force: true do |t|
+    t.string   "name"
+    t.integer  "tier"
+    t.text     "description"
+    t.integer  "order"
+    t.integer  "drug_class_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "drugs", force: true do |t|
+    t.string   "generic_name",  null: false
+    t.string   "chemical_name"
+    t.string   "trade_name"
+    t.text     "description"
     t.boolean  "pending"
+    t.integer  "order"
+    t.integer  "drug_class_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "side_effects", force: true do |t|
+    t.integer "drug_id"
+    t.integer "side_effect_id"
+    t.string  "side_effect_type"
   end
 
   create_table "symptoms", force: true do |t|
@@ -70,6 +92,12 @@ ActiveRecord::Schema.define(version: 20140910181122) do
   create_table "systems", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "treatments", force: true do |t|
+    t.integer "drug_id"
+    t.integer "treatable_id"
+    t.integer "treatable_type_id"
   end
 
   create_table "users", force: true do |t|

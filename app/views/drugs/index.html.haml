@@ -1,0 +1,27 @@
+= cache do
+  %div.magellan{"data-magellan-expedition" => "fixed"}
+    %dl.sub-nav
+      %dd{"data-magellan-arrival" => "antimicrobial"}
+        %a{href: "#bacteria"} Antimicrobial
+      %dd{"data-magellan-arrival" => "viruses"}
+        %a{href: "#viruses"} Viruses
+      %dd{"data-magellan-arrival" => "fungi"}
+        %a{href: "#fungi"} Fungi
+      %dd{"data-magellan-arrival" => "parasites"}
+        %a{href: "#parasites"} Parasites
+
+  - antimicrobial = DrugClass.first
+  %a{name: 'antimicrobial', 'data-magellan-destination' => 'antimicrobial'}
+  %ul.public.drug-list
+    %li.tier-0{id: antimicrobial.name.downcase}
+      %h2.centered
+        -# Icon is 'Bacteria' by hunotika from The Noun Project
+        = image_tag asset_path('icons/antibacterial.svg'), class: 'bug-icon'
+        = antimicrobial.name
+      %hr.mini
+        -# .small-4.columns
+        -#   %ul.firster
+        -#     = render partial: 'partials/li', locals: {bc: antimicrobial.subclasses[0], bug_or_drug: false}
+        .small-12.columns
+          = render partial: 'partials/multicolumn', locals: {bc: antimicrobial.subclasses[0], bug_or_drug: false, splits: [(0..1), (2..2),(3..5)]}
+    %hr

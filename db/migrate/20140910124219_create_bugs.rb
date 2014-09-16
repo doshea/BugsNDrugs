@@ -12,10 +12,11 @@ class CreateBugs < ActiveRecord::Migration
       t.text :toxins
       t.integer :order
       t.text :image
-      t.belongs_to :bug_class
       t.boolean :motile, default: false
       t.boolean :encapsulated, default: false
       t.boolean :pending
+
+      t.belongs_to :bug_class
       t.timestamps
     end
   end
