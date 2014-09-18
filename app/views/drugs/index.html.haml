@@ -1,18 +1,16 @@
 = cache do
   %div.magellan{"data-magellan-expedition" => "fixed"}
     %dl.sub-nav
-      %dd{"data-magellan-arrival" => "antimicrobial"}
-        %a{href: "#bacteria"} Antimicrobial
-      %dd{"data-magellan-arrival" => "viruses"}
-        %a{href: "#viruses"} Viruses
-      %dd{"data-magellan-arrival" => "fungi"}
-        %a{href: "#fungi"} Fungi
-      %dd{"data-magellan-arrival" => "parasites"}
-        %a{href: "#parasites"} Parasites
+      %dd{"data-magellan-arrival" => "antimicrobials"}
+        %a{href: "#antimicrobials"} Antimicrobials
+      %dd{"data-magellan-arrival" => "chemo-immuno"}
+        %a{href: "#chemo-immuno"} Chemo/Immuno
+      %dd{"data-magellan-arrival" => "autonomics"}
+        %a{href: "#autonomics"} Autonomics
 
-  - antimicrobial,chemotherapeutics = DrugClass.all
-  %a{name: 'antimicrobial', 'data-magellan-destination' => 'antimicrobial'}
+  - antimicrobial,chemotherapeutics,immunosuppressants, autonomics = DrugClass.all
   %ul.public.drug-list
+    %a{name: 'antimicrobials', 'data-magellan-destination' => 'antimicrobials'}
     %li.tier-0{id: antimicrobial.name.downcase}
       %h2.centered
         -# Icon is 'Bacteria' by hunotika from The Noun Project
@@ -28,13 +26,17 @@
           = render partial: 'partials/multicolumn', locals: {bc: antimicrobial.subclasses[2], bug_or_drug: false, splits: [(0..3)]}
         .small-4.columns
     %hr
+    %a{name: 'chemo-immuno', 'data-magellan-destination' => 'chemo-immuno'}
     %li.tier-0{id: chemotherapeutics.name.downcase}
       %h2.centered
-        -# Icon is 'Bacteria' by hunotika from The Noun Project
-        = image_tag asset_path('icons/antibacterial.svg'), class: 'bug-icon'
-        = chemotherapeutics.name
+        -# Icon is "IV Bag" by hunotika from The Noun Project
+        = image_tag asset_path('icons/iv_bag.svg'), class: 'bug-icon'
+        Chemo/Immuno
       %hr.mini
-        .small-4.columns.small-offset-1
-          = render partial: 'partials/multicolumn', locals: {bc: chemotherapeutics, bug_or_drug: false, splits: [(0..0)]}
-        .small-4.columns.small-offset-2.end
-          = render partial: 'partials/multicolumn', locals: {bc: chemotherapeutics, bug_or_drug: false, splits: [(1..5)]}
+        .small-8.columns
+          = render partial: 'partials/multicolumn', locals: {bc: chemotherapeutics, bug_or_drug: false, splits: [(0..0), (1..5)]}
+        .small-4.columns
+          = render partial: 'partials/multicolumn', locals: {bc: immunosuppressants, bug_or_drug: false, splits: [(0..2)]}
+    %hr
+    %a{name: 'autonomics', 'data-magellan-destination' => 'autonomics'}
+    %li.tier-0{id: chemotherapeutics.name.downcase}

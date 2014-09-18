@@ -17,4 +17,7 @@ class Drug < ActiveRecord::Base
   belongs_to :drug_class
   belongs_to :branch, class_name: 'DrugClass', foreign_key: 'drug_class_id'
 
+  has_many :side_effects, dependent: :destroy
+  has_many :symptoms, through: :side_effects, source: :effectable, source_type: 'Symptom'
+  has_many :syndromes, through: :side_effects, source: :effectable, source_type: 'Syndrome'
 end

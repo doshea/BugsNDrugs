@@ -9,4 +9,9 @@
 #
 
 class Syndrome < ActiveRecord::Base
+  has_and_belongs_to_many :symptoms
+  
+  has_many :side_effects, as: :taggable, dependent: :destroy
+  has_many :drugs, through: :side_effects
+
 end

@@ -3,5 +3,12 @@
     - bc.subclasses.each do |sc|
       = render partial: 'partials/li', locals: {bc: sc, bug_or_drug: bug_or_drug}
     - bc.leafs.each do |leaf|
-      %li{class: bug_or_drug ? 'bug' : 'drug'}
-        = link_to (bug_or_drug ? leaf.abbreviated_initial : leaf.generic_name), leaf
+      = content_tag_for(:li, leaf) do
+        -# - unless bug_or_drug
+        -#   = link_to show_preview_drug_path(leaf), remote: true do
+        -#     BEEF
+        .preview-container
+          - if bug_or_drug
+            = link_to leaf.abbreviated_initial, leaf
+          - else
+            = link_to leaf.generic_name, show_preview_drug_path(leaf),remote: true

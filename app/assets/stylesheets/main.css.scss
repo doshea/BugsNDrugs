@@ -94,6 +94,7 @@ footer {
   &:not(.fixed){
     position: absolute;
     top: 3em;
+    left: 0;
   }
   &.fixed{
     visibility: visible;

@@ -43,6 +43,7 @@
   }
   .bug, .drug {
     background: white;
+    position: relative;
   }
   ul {
     border-left: 1px solid black;
@@ -78,5 +79,77 @@
     .tier-2 >li, .tier-4 > li, .tier-6 > li{
       background: white;
     }
+  }
+}
+
+.preview-container {
+  position: relative;
+  display: inline-block;
+}
+.preview {
+  padding: 0.5em 1em;
+  display: none;
+  position: absolute;
+  left: 130%;
+  top: -1.5em;
+  z-index: 1;
+  // background: lighten(#39275b, 50%);
+  background: white;
+  border: 1px solid #aaa;
+  -moz-box-shadow: 3px 3px 5px black;
+  -ms-box-shadow: 3px 3px 5px black;
+  -webkit-box-shadow: 3px 3px 5px black;
+  box-shadow: 3px 3px 5px black;
+
+  .nib {
+    position: absolute;
+    top: 1.5em;
+    right: 100%;
+    width: 0;
+    height: 0;
+    border: solid 10px;
+    border-color: transparent #333333 transparent transparent;
+  }
+  ul {
+    border: none;
+    li {
+      list-style-type: square;
+    }
+  }
+  p, h6 {
+    margin: 0;
+  }
+  * {
+    font-size: 1em;
+  }
+  hr {
+    margin: 0.5rem 0;
+  }
+  i {
+    opacity: 1;
+    position: absolute;
+    top: 0.35em;
+    width: 1.2em;
+    height: 1.2em;
+    border: 1px solid black;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    color: #333;
+    background: whitesmoke;
+    line-height: 1em;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+    &:hover {
+      background: #ccc;
+    }
+  }
+  .fi-link {
+    right: 1.7em;
+  }
+  .fi-x {
+    right: 0.35em;
   }
 }

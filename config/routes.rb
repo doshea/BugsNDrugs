@@ -8,7 +8,11 @@ BugsNDrugs::Application.routes.draw do
   resources :users, only: [:new, :create]
   resources :bugs, only: [:index, :show]
   resources :bug_classes, only: [:index, :show]
-  resources :drugs, only: [:index, :show]
+  resources :drugs, only: [:index, :show] do
+    member do
+      get :show_preview
+    end
+  end
   resources :drug_classes, only: [:index, :show]
   
   namespace :account do

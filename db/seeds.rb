@@ -177,6 +177,8 @@ intestine_flukes.add_bugs(['Fasciolopsis'])
 ###DRUGS###
 antimicrobials = DrugClass.create(name: 'Antimicrobials', tier: 0, order: 1)
 chemotherapeutics = DrugClass.create(name: 'Chemotherapeutics', tier: 0, order: 2)
+immunosuppressants = DrugClass.create(name: 'Immunosuppressants', tier: 0, order: 3)
+autonomics = DrugClass.create(name: 'Autonomics', tier: 0, order: 4)
 antibacterials, antivirals, antifungals, antiparasitics = antimicrobials.add_child_classes(['Antibacterials', 'Antivirals', 'Antifungals','Antiparasitics'])
 
 #Anti-bacterials
@@ -239,8 +241,10 @@ protein_synth.add_leafs(['L-asparaginase'])
 mitotic_poisons.add_leafs(['Vinca Alkaloids','Paclitaxel (Taxol)'])
 tyrosine_kinase_inhibitors.add_leafs(['Imatinib (Gleevec)','Gefitinib (Iressa)','Vemurafenib (Zelboraf)'])
 
-
-
+immunophilin_inhibs,gcs,anti_tnfs = immunosuppressants.add_child_classes(['Immunophilin Inhibitors','Glucocorticoids','Anti-TNF drugs'])
+immunosuppressants.add_leafs(['Mycophenolate Mofitil'])
+immunophilin_inhibs.add_leafs(['Cyclosporine','Tacrolimus','Serolimus'])
+anti_tnfs.add_leafs(['Infliximab (Remicade)','Adalimumab (Humera)','Etanercept (Enbrel)'])
 
 
 

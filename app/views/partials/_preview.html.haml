@@ -1,0 +1,20 @@
+.preview
+  .nib
+  = link_to @drug, target: '_blank' do
+    %i.fi-link.text-center
+  = link_to '' do
+    %i.fi-x.text-center
+  - if @treats.any?
+    %h6 Treats:
+    %ul
+      - @treats.each do |treat|
+        %li= treat
+    %hr
+  %h6 Mechanism:
+  %p= @mechanism
+  - if @side_effects.any?
+    %hr
+    %h6 Toxicity:
+    %ul
+      -@side_effects.each do |effect|
+        %li= effect

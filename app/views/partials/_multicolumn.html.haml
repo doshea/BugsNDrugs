@@ -6,3 +6,9 @@
     - split.each do |index|
       %ul.firster
         = render partial: 'partials/li', locals: {bc: bc.subclasses[index], bug_or_drug: bug_or_drug}
+    - if split == splits.last
+      - if bc.leafs.any?
+        %ul.firster
+          - bc.leafs.each do |leaf|
+            %li{class: bug_or_drug ? 'bug' : 'drug'}
+              = link_to (bug_or_drug ? leaf.abbreviated_initial : leaf.generic_name), leaf

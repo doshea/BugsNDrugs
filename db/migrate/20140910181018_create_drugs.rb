@@ -4,7 +4,7 @@ class CreateDrugs < ActiveRecord::Migration
       t.string :generic_name, null: false, unique: true
       t.string :chemical_name
       t.string :trade_name
-      t.text :description
+      t.text :mechanism
       t.boolean :pending
       t.integer :order
       

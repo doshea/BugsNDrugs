@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20140915060954) do
     t.string   "generic_name",  null: false
     t.string   "chemical_name"
     t.string   "trade_name"
-    t.text     "description"
+    t.text     "mechanism"
     t.boolean  "pending"
     t.integer  "order"
     t.integer  "drug_class_id"
@@ -69,10 +69,10 @@ ActiveRecord::Schema.define(version: 20140915060954) do
     t.datetime "updated_at"
   end
 
-  create_table "side_effects", force: true do |t|
+  create_table "side_effects", id: false, force: true do |t|
     t.integer "drug_id"
-    t.integer "side_effect_id"
-    t.string  "side_effect_type"
+    t.integer "effectable_id"
+    t.string  "effectable_type"
   end
 
   create_table "symptoms", force: true do |t|
