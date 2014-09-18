@@ -28,6 +28,9 @@
 
     a {
       color: #555;
+      &:hover {
+        color: #777;
+      }
     }
   }
   .bar {

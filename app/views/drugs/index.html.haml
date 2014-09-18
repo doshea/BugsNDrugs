@@ -10,7 +10,7 @@
       %dd{"data-magellan-arrival" => "parasites"}
         %a{href: "#parasites"} Parasites
 
-  - antimicrobial = DrugClass.first
+  - antimicrobial,chemotherapeutics = DrugClass.all
   %a{name: 'antimicrobial', 'data-magellan-destination' => 'antimicrobial'}
   %ul.public.drug-list
     %li.tier-0{id: antimicrobial.name.downcase}
@@ -19,9 +19,22 @@
         = image_tag asset_path('icons/antibacterial.svg'), class: 'bug-icon'
         = antimicrobial.name
       %hr.mini
-        -# .small-4.columns
-        -#   %ul.firster
-        -#     = render partial: 'partials/li', locals: {bc: antimicrobial.subclasses[0], bug_or_drug: false}
         .small-12.columns
-          = render partial: 'partials/multicolumn', locals: {bc: antimicrobial.subclasses[0], bug_or_drug: false, splits: [(0..1), (2..2),(3..5)]}
+          = render partial: 'partials/multicolumn', locals: {bc: antimicrobial.subclasses[0], bug_or_drug: false, splits: [(0..0), (1..2),(3..6)]}
+        %hr
+        .small-4.columns
+          -# = render partial: 'partials/multicolumn', locals: {bc: antimicrobial.subclasses[1], bug_or_drug: false, splits: [(0..3)]}
+        .small-4.columns
+          = render partial: 'partials/multicolumn', locals: {bc: antimicrobial.subclasses[2], bug_or_drug: false, splits: [(0..3)]}
+        .small-4.columns
     %hr
+    %li.tier-0{id: chemotherapeutics.name.downcase}
+      %h2.centered
+        -# Icon is 'Bacteria' by hunotika from The Noun Project
+        = image_tag asset_path('icons/antibacterial.svg'), class: 'bug-icon'
+        = chemotherapeutics.name
+      %hr.mini
+        .small-4.columns.small-offset-1
+          = render partial: 'partials/multicolumn', locals: {bc: chemotherapeutics, bug_or_drug: false, splits: [(0..0)]}
+        .small-4.columns.small-offset-2.end
+          = render partial: 'partials/multicolumn', locals: {bc: chemotherapeutics, bug_or_drug: false, splits: [(1..5)]}

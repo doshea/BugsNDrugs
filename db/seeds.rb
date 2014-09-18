@@ -176,18 +176,20 @@ intestine_flukes.add_bugs(['Fasciolopsis'])
 
 ###DRUGS###
 antimicrobials = DrugClass.create(name: 'Antimicrobials', tier: 0, order: 1)
+chemotherapeutics = DrugClass.create(name: 'Chemotherapeutics', tier: 0, order: 2)
 antibacterials, antivirals, antifungals, antiparasitics = antimicrobials.add_child_classes(['Antibacterials', 'Antivirals', 'Antifungals','Antiparasitics'])
 
-cell_wall_inhibs, membrane_depolarizers, translation_inhibitors, fluoroquinolones, RNA_synthase_inhibitors, dna_damagers, antimetabolites = antibacterials.add_child_classes(['Cell Wall Inhibitors', 'Membrane Depolarizers','Translation Inhibitors', 'Fluoroquinolones', 'DNA Damagers', 'Antimetabolites'])
+#Anti-bacterials
+cell_wall_inhibs,translation_inhibitors,membrane_depolarizers, fluoroquinolones, dna_damagers, antimetabolites, antimycobacterials = antibacterials.add_child_classes(['Cell Wall Inhibitors','Translation Inhibitors', 'Membrane Depolarizers', 'Fluoroquinolones','DNA Damagers', 'Antimetabolites', 'Antimycobacterials'])
 
 penicillins, cephalosporins, carbapenems, beta_lactamase_inhibitors = cell_wall_inhibs.add_child_classes(['Penicillins', 'Cephalosporins', 'Carbapenems', 'β Lactamase Inhibitors'])
 penicillins.add_leafs(['Penicillin G', 'Methicillin', 'Nafcillin', 'Oxacillin', 'Ampicillin', 'Amoxicillin','Pipericillin', 'Ticaricillin'])
 ceph_genI, ceph_genIII, ceph_genIV = cephalosporins.add_child_classes(['Gen I', 'Gen III', 'Gen IV'])
 ceph_genI.add_leafs(['Cefazolin', 'Cephalexin'])
-ceph_genIII.add_leafs(['Ceftriaxone', 'Cefixime'])
+ceph_genIII.add_leafs(['Ceftazidime','Ceftriaxone'])
 ceph_genIV.add_leafs(['Cefepime', 'Ceftaroline'])
-carbapenems.add_leafs(['Imipenem', 'Doripenem', 'Meropenem', 'Ertapenem'])
-beta_lactamase_inhibitors.add_leafs(['Clavulanic acid','sulbactam','tazobactam'])
+carbapenems.add_leafs(['Meropenem'])
+beta_lactamase_inhibitors.add_leafs(['Clavulanic acid','Sulbactam','Tazobactam'])
 cell_wall_inhibs.add_leafs(['Vancomycin','Fosfomycin','Bacitracin','Cycloserine'])
 membrane_depolarizers.add_leafs(['Daptomycin'])
 
@@ -195,13 +197,52 @@ inhib_30s, inhib_50s = translation_inhibitors.add_child_classes(['30S inhibitors
 tetracyclines, aminoglycosides = inhib_30s.add_child_classes(['Tetracyclines', 'Aminoglycosides'])
 macrolides, lincosamide, streptogramins = inhib_50s.add_child_classes(['Macrolides', 'Lincosamide', 'Streptogramins'])
 tetracyclines.add_leafs(['Tetracycline','Doxycycline','Minocycline','Tigecycline'])
-aminoglycosides.add_leafs(['Gentamycin','Tobramycin','Amikacin','Streptomycin','Neomycin','Spectinomycin'])
+aminoglycosides.add_leafs(['Gentamicin','Tobramycin','Amikacin','Streptomycin','Neomycin','Spectinomycin'])
 macrolides.add_leafs(['Erythromycin','Azithromycin','Clarithromycin','Telithromycin','Fidaxomycin'])
 lincosamide.add_leafs(['Clindamycin'])
 streptogramins.add_leafs(['Quinupristin-dalfopristin','Chloramphenicol'])
 inhib_50s.add_leafs(['Linezolid'])
 
 fluoroquinolones.add_leafs(['Norfloxacin','Ciprofloxacin','Ofloxacin','Levofloxacin','Gemifloxacin','Moxifloxacin'])
+dna_damagers.add_leafs(['Metronidazole','Nitrofurantoin'])
+antimetabolites.add_leafs(['Sulfamethoxazole', 'Trimethoprim'])
+antimycobacterials.add_leafs(['Rifampin','Isoniazid','Pyrazinamide','Ethambutol', 'Dapsone'])
+
+
+#Anti-virals
+
+
+#Antifungals
+
+membrane_permeabilizers, echinocandins, dna_synthesis_inhibitors, microtubule_inhibitors = antifungals.add_child_classes(['Membrane Permeabilizers','Echinocandins','DNA Synthesis Inhibitors','Microtubule Inhibitors'])
+azoles = membrane_permeabilizers.add_child_class('Azoles')
+azoles.add_leafs(['Fluconazole','Voraconazole','Itraconazole','Ketoconazole'])
+membrane_permeabilizers.add_leafs(['Amphotericin B'])
+membrane_permeabilizers.add_leafs(['Terbinafine'])
+dna_synthesis_inhibitors.add_leafs(['Flucytosine (5-F-U)'])
+
+echinocandins.add_leafs(['Caspofungin'])
+microtubule_inhibitors.add_leafs(['Griseofluvin'])
+
+#Chemotherapeutics
+dna_targeters,hormone_therapy,antibodies,protein_synth,mitotic_poisons,tyrosine_kinase_inhibitors = chemotherapeutics.add_child_classes(['DNA Targeters','Hormone Therapy','Antibodies','Protein Synth Inhibition','Mitotic Poisions','Tyrosine Kinase Inhibitors'])
+crosslinkers,free_radicals,helix_inhibitors,synthesis_inhibitors = dna_targeters.add_child_classes(['Crosslinkers','Radical Producers','Helix Inhibitors','Synthesis Inhibitors'])
+crosslinkers.add_leafs(['Methochlorethamine','Cyclophosphamide','Cisplatin'])
+free_radicals.add_leafs(['Bleomycin'])
+helix_inhibitors.add_leafs(['Actinomycin','Doxorubicin','Etoposide','Irinotecan'])
+synthesis_inhibitors.add_leafs(['Methotrexate','Fluorouracil','Cytosine Arabinoside','Hydroxyurea','6-thioguanosine'])
+
+hormone_therapy.add_leafs(['Tamoxifen','Anastrazole','Leuprolide'])
+
+antibodies.add_leafs(['Trastuzamab (Herceptin)','Bevacizumab (Avastin)'])
+protein_synth.add_leafs(['L-asparaginase'])
+mitotic_poisons.add_leafs(['Vinca Alkaloids','Paclitaxel (Taxol)'])
+tyrosine_kinase_inhibitors.add_leafs(['Imatinib (Gleevec)','Gefitinib (Iressa)','Vemurafenib (Zelboraf)'])
+
+
+
+
+
 
 
 

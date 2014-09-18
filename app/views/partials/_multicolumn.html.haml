@@ -4,5 +4,5 @@
 - splits.each do |split|
   .columns{class: "small-#{12/splits.length}"}
     - split.each do |index|
-      %ul
+      %ul.firster
         = render partial: 'partials/li', locals: {bc: bc.subclasses[index], bug_or_drug: bug_or_drug}
