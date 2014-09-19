@@ -278,12 +278,12 @@ antimetabolites.add_leafs([sulfamethoxazole, trimethoprim])
 antimycobacterials.add_leafs([rifampin,isoniazid,pyrazinamide,ethambutol, dapsone])
 
 
-acyclovir = Drug.new(generic_name: 'Acyclovir', mechanism:'Blocks viral DNA polymerase, activated by viral Thymidine Kinase (TK)', csf: true, metabolized_in: 'Kidney',administered: 'PO',toxicities: '')
-ganciclovir = Drug.new(generic_name: 'Ganciclovir', csf: true, metabolized_in: 'Kidney',administered: 'IV',toxicities: 'Bone marrow toxicity')
-foscarnet = Drug.new(generic_name: 'Foscarnet', csf: true, metabolized_in: 'Kidney',administered: 'IV',toxicities: 'Nephrotoxicity')
+acyclovir = Drug.new(generic_name: 'Acyclovir', mechanism:'Blocks viral DNA polymerase, activated by viral Thymidine Kinase (TK)', csf: true, metabolized_in: 'Kidney',administered: 'PO')
+ganciclovir = Drug.new(generic_name: 'Ganciclovir', mechanism: 'Blocks viral DNA polymerase, activated by viral Thymidine Kinase (TK)',csf: true, metabolized_in: 'Kidney',administered: 'IV',toxicities: 'Bone marrow toxicity')
+foscarnet = Drug.new(generic_name: 'Foscarnet', mechanism:'Blocks viral DNA polymerase (and reverse transcriptase)',csf: true, metabolized_in: 'Kidney',administered: 'IV',toxicities: 'Nephrotoxicity')
 
 lamivudine = Drug.new(generic_name: 'Lamivudine', csf: true, metabolized_in: 'Kidney',administered: 'PO')
-zidovudine = Drug.new(generic_name: 'Zidovudine (AZT)', csf: true, metabolized_in: 'Liver',administered: 'PO',toxicities: 'Bone marrow depression')
+zidovudine = Drug.new(generic_name: 'Zidovudine (AZT)',mechanism:'Inhibi', csf: true, metabolized_in: 'Liver',administered: 'PO',toxicities: 'Bone marrow depression')
 
 
 efavirenz = Drug.new(generic_name: 'Efavirenz', csf: true, metabolized_in: 'Liver',administered: 'PO',toxicities: 'CNS toxicity, Skin rashes')
@@ -294,28 +294,41 @@ enfuvirtide = Drug.new(generic_name: 'Enfuvirtide', csf: true, metabolized_in: '
 
 oseltamivir = Drug.new(generic_name: 'Oseltamivir (Tamiflu)', csf: true, metabolized_in: 'Liver',administered: 'PO')
 
-interferon = Drug.new(generic_name: 'Interferon-alpha', csf: true, metabolized_in: 'Liver',administered: 'IV',toxicities: 'Bone marrow suppression, Flu-li symptoms')
-telepravir = Drug.new(generic_name: 'Telepravir (Incivek)', csf: true, metabolized_in: 'Liver',administered: 'PO')
-sofosbuvir = Drug.new(generic_name: 'Sofosbuvir (Sovaldi)', csf: true, metabolized_in: 'Kidney',administered: 'PO')
+interferon = Drug.new(generic_name: 'Interferon-alpha', mechanism: 'Induces multiple anti-viral immune responses in host cells',csf: true, metabolized_in: 'Liver',administered: 'IV',toxicities: 'Bone marrow suppression, Flu-li symptoms')
+telepravir = Drug.new(generic_name: 'Telepravir (Incivek)', mechanism:'Inhibits HCV protease',csf: true, metabolized_in: 'Liver',administered: 'PO')
+sofosbuvir = Drug.new(generic_name: 'Sofosbuvir (Sovaldi)', mechanism: 'Inhibits HCV RNA-dependent RNA polymerase',csf: true, metabolized_in: 'Kidney',administered: 'PO')
 
 #Anti-virals
 herpes_drugs, hiv_drugs, flu_drugs, hepatitis_drugs = antivirals.add_child_classes(['Herpes Drugs','HIV Drugs','Flu Drugs','Hepatitis Drugs'])
 herpes_drugs.add_leafs([acyclovir,ganciclovir,foscarnet])
-hiv_drugs.add_leafs([lamivudine,zidovudine,efavirenz,fosamprenavir,ritonavir,raltegravir,enfuvirtide])
+rt_binders,protease_inhibitors = hiv_drugs.add_child_classes(['RT Binders','Protease Inhibitors'])
+rt_binders.add_leafs([lamivudine,zidovudine,efavirenz])
+protease_inhibitors.add_leafs([fosamprenavir,ritonavir])
+hiv_drugs.add_leafs([raltegravir,enfuvirtide])
 flu_drugs.add_leafs([oseltamivir])
 hepatitis_drugs.add_leafs([interferon,telepravir,sofosbuvir])
 
 #Antifungals
+fluconazole = Drug.new(generic_name: 'Fluconazole', mechanism:'', csf: true, metabolized_in: 'Kidney',administered: 'PO')
+voraconazole = Drug.new(generic_name: 'Voraconazole', mechanism:'', csf: true, metabolized_in: 'Kidney',administered: 'PO',toxicities: 'Transient visual disturbance')
+itraconazole = Drug.new(generic_name: 'Itraconazole', mechanism:'', csf: true, metabolized_in: 'Kidney',administered: 'PO', toxicities: 'TBA',obscure: true)
+ketoconazole = Drug.new(generic_name: 'Ketoconazole', mechanism:'', csf: true, metabolized_in: 'Kidney',administered: 'PO', toxicities: 'TBA',obscure: true)
+amphotericin_b = Drug.new(generic_name: 'Amphotericin B', mechanism:'', csf: false, metabolized_in: 'Kidney',administered: 'IV', toxicities: 'Nephrotoxicity,Fever,Chills')
+terbinafine = Drug.new(generic_name: 'Terbinafine', mechanism:'', csf: true, metabolized_in: 'Kidney',administered: 'PO',toxicities: 'Hepatotoxicity', obscure: true)
+caspofungin = Drug.new(generic_name: 'Caspofungin', mechanism:'', csf: false, metabolized_in: 'Liver',administered: 'IV',toxicities: 'Headache, GI distress, Histamine release')
+flucytosine = Drug.new(generic_name: 'Flucytosine (5-F-U)', mechanism:'', csf: true, metabolized_in: 'Kidney',administered: 'PO',toxicities: 'Rare bone marrow suppression')
+griseofluvin = Drug.new(generic_name: 'Griseofluvin', mechanism:'', csf: true, metabolized_in: 'Kidney',administered: 'PO',toxicities: 'TBA', obscure: true)
+
 
 membrane_permeabilizers, echinocandins, dna_synthesis_inhibitors, microtubule_inhibitors = antifungals.add_child_classes(['Membrane Permeabilizers','Echinocandins','DNA Synthesis Inhibitors','Microtubule Inhibitors'])
 azoles = membrane_permeabilizers.add_child_class('Azoles')
-azoles.add_leafs(['Fluconazole','Voraconazole','Itraconazole','Ketoconazole'])
-membrane_permeabilizers.add_leafs(['Amphotericin B'])
-membrane_permeabilizers.add_leafs(['Terbinafine'])
-dna_synthesis_inhibitors.add_leafs(['Flucytosine (5-F-U)'])
+azoles.add_leafs([fluconazole,voraconazole,itraconazole,ketoconazole])
+membrane_permeabilizers.add_leafs([amphotericin_b])
+membrane_permeabilizers.add_leafs([terbinafine])
+dna_synthesis_inhibitors.add_leafs([flucytosine])
 
-echinocandins.add_leafs(['Caspofungin'])
-microtubule_inhibitors.add_leafs(['Griseofluvin'])
+echinocandins.add_leafs([caspofungin])
+microtubule_inhibitors.add_leafs([griseofluvin])
 
 #Chemotherapeutics
 dna_targeters,hormone_therapy,antibodies,protein_synth,mitotic_poisons,tyrosine_kinase_inhibitors = chemotherapeutics.add_child_classes(['DNA Targeters','Hormone Therapy','Antibodies','Protein Synth Inhibition','Mitotic Poisions','Tyrosine Kinase Inhibitors'])

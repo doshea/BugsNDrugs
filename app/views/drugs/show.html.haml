@@ -4,5 +4,21 @@
       = link_to (ancestor.name || ancestor.generic_name), ancestor
   %li
     = link_to @drug.generic_name, ''
-%h1.drug
-  = @drug.generic_name
+%h1.drug= @drug.generic_name
+%hr
+.small-3.columns
+  %h6 Treats: TBA
+  %hr
+  %h6= "Administered: #{@drug.administered}"
+  %hr
+  %h6= "Metabolized: #{@drug.metabolized_in}"
+  %hr
+  %h6= "CSF: #{@drug.csf ? 'Yes' : 'No'}"
+  %hr
+  %h6 Toxicities:
+  %ul
+    - @drug.tox_to_a.each do |t|
+      %li= t
+.small-9.columns
+  %h6 Mechanism of Action:
+  %p= @drug.mechanism

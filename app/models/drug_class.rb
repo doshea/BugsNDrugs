@@ -23,6 +23,8 @@ class DrugClass < ActiveRecord::Base
   has_many :drugs, inverse_of: :drug_class
   has_many :leafs, class_name: 'Drug', foreign_key: 'drug_class_id'
 
+  scope :top_tier, -> { where(tier: 0) }
+
   def child_count
     # TODO make this use a counter, it is way too CPU intensive
     preliminary_count = subclasses.map{|bc| bc.child_count}.reduce(:+)

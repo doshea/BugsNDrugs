@@ -1,0 +1,14 @@
+%ul.breadcrumbs
+  - @lineage.each do |ancestor|
+    %li
+      = link_to (ancestor.name || ancestor.generic_name), ancestor
+  %li
+    = link_to @bc.name, ''
+%h1.drug= @bc.name
+%hr
+.small-3.columns
+  = render partial: 'partials/li', locals: {bc: @bc, bug_or_drug: false}
+.small-9.columns
+  %p.description
+    = @bc.description
+    In a far distant future, there will be meaningful text in this space...
