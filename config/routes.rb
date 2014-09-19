@@ -14,6 +14,7 @@ BugsNDrugs::Application.routes.draw do
     end
   end
   resources :drug_classes, only: [:show]
+  resources :symptoms, only: [:index, :show]
   
   namespace :account do
     get '/', to: :show

@@ -9,5 +9,12 @@ $(document).on('click', '.preview-container a', function(e){
 
 $(document).on('click', '.preview .fi-x', function(e){
   e.preventDefault();
-  $(this).closest('.preview').fadeOut();
+  $(this).closest('.preview').fadeOut('fast');
+});
+
+$(document).mouseup(function (e){
+    var container = $('.preview-container');
+    if (!container.is(e.target) && container.has(e.target).length === 0){
+        container.children('.preview').fadeOut('fast');
+    }
 });

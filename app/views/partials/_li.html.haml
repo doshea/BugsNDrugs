@@ -2,5 +2,5 @@
   -if defined? list_root
     = link_to "#{bc.name} (#{bc.child_count})", bc
   - else
-    = link_to bc.name, bc
+    = link_to bc.name, bc, target: '_blank'
   = render partial: 'partials/ul', locals: {bc: bc, bug_or_drug: bug_or_drug}
