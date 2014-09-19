@@ -21,7 +21,7 @@
           = render partial: 'partials/multicolumn', locals: {bc: antimicrobial.subclasses[0], bug_or_drug: false, splits: [(0..0), (1..2),(3..6)]}
         %hr
         .small-4.columns
-          -# = render partial: 'partials/multicolumn', locals: {bc: antimicrobial.subclasses[1], bug_or_drug: false, splits: [(0..3)]}
+          = render partial: 'partials/multicolumn', locals: {bc: antimicrobial.subclasses[1], bug_or_drug: false, splits: [(0..3)]}
         .small-4.columns
           = render partial: 'partials/multicolumn', locals: {bc: antimicrobial.subclasses[2], bug_or_drug: false, splits: [(0..3)]}
         .small-4.columns

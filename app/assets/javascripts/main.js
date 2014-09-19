@@ -1,9 +1,9 @@
 /* This will contain global javascript for your application */
 $(document).on('click', '.preview-container a', function(e){
-  $('.preview:visible').fadeOut();
   var preview_sibling = $(this).siblings('.preview');
-  if( preview_sibling.length > 0 ){
-    preview_sibling.fadeIn();
+  if(preview_sibling.css('display') != 'block'){
+    $('.preview:visible').fadeOut('fast');
+    preview_sibling.show();
   }
 });
 

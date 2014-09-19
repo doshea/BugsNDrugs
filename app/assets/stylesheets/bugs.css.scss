@@ -112,13 +112,18 @@
     border-color: transparent #333333 transparent transparent;
   }
   p {
+    font-size: larger;
+    &.mechanism {
+      font-size: smaller;
+    }
+  }
+  h6 {
     font-size: smaller;
   }
   ul {
     border: none;
     li {
       list-style-type: square;
-      font-size: smaller;
     }
   }
   p, h6 {
@@ -159,4 +164,8 @@
   .fi-x {
     right: 0.35em;
   }
+}
+
+.obscure {
+  display: none;
 }
