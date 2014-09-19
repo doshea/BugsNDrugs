@@ -6,6 +6,7 @@
 #  name          :string(255)
 #  tier          :integer
 #  description   :text
+#  order         :integer
 #  drug_class_id :integer
 #  created_at    :datetime
 #  updated_at    :datetime
@@ -51,7 +52,13 @@ class DrugClass < ActiveRecord::Base
   end
 
   def add_leafs(leaf_array)
-    leaf_array.each{|d| leafs << Drug.new(generic_name: d)}
+    leaf_array.each do |leaf|
+      if leaf.class == String
+        leafs << Drug.new(generic_name: leaf)
+      elsif leaf.class == Drug
+        leafs << leaf
+      end
+    end
   end
 
   private

@@ -185,7 +185,7 @@ antibacterials, antivirals, antifungals, antiparasitics = antimicrobials.add_chi
 cell_wall_inhibs,translation_inhibitors,membrane_depolarizers, fluoroquinolones, dna_damagers, antimetabolites, antimycobacterials = antibacterials.add_child_classes(['Cell Wall Inhibitors','Translation Inhibitors', 'Membrane Depolarizers', 'Fluoroquinolones','DNA Damagers', 'Antimetabolites', 'Antimycobacterials'])
 
 penicillins, cephalosporins, carbapenems, beta_lactamase_inhibitors = cell_wall_inhibs.add_child_classes(['Penicillins', 'Cephalosporins', 'Carbapenems', 'β Lactamase Inhibitors'])
-penicillins.add_leafs(['Penicillin G', 'Methicillin', 'Nafcillin', 'Oxacillin', 'Ampicillin', 'Amoxicillin','Pipericillin', 'Ticaricillin'])
+penicillins.add_leafs([Drug.new(generic_name:'Penicillin G', csf: true), 'Methicillin', 'Nafcillin', 'Oxacillin', 'Ampicillin', 'Amoxicillin','Pipericillin', 'Ticaricillin'])
 ceph_genI, ceph_genIII, ceph_genIV = cephalosporins.add_child_classes(['Gen I', 'Gen III', 'Gen IV'])
 ceph_genI.add_leafs(['Cefazolin', 'Cephalexin'])
 ceph_genIII.add_leafs(['Ceftazidime','Ceftriaxone'])

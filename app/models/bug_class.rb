@@ -26,7 +26,7 @@ class BugClass < ActiveRecord::Base
   scope :top_tier, -> { where(tier: 0) }
 
   def tiered_name
-    '-' * (tier - 1) + name
+    '-' * tier + name
   end
 
   def child_count

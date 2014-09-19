@@ -1,0 +1,23 @@
+= content_tag_for(:tr, drug) do
+  %td
+    = link_to drug do
+      %i.fi-link
+  %td= drug.generic_name
+  %td= drug.order
+  %td= drug.drug_class ? (link_to drug.drug_class.name, drug.drug_class) : 'N/A'
+  %td= drug.administered
+  %td= drug.metabolized_in
+  %td= drug.toxicities
+  %td
+    - unless drug.csf.nil?
+      - if drug.csf
+        %i.fi-check
+      - else
+        %i.fi-x
+  %td= drug.mechanism
+  %td
+    = link_to edit_admin_drug_path(drug) do
+      %i.fi-pencil
+  %td
+    = link_to admin_drug_path(drug), method: :delete, remote: true, data: {confirm: "Are you SURE you want to delete #{drug.generic_name}?"} do
+      %i.fi-trash

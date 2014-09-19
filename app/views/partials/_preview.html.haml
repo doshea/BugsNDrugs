@@ -4,17 +4,24 @@
     %i.fi-link.text-center
   = link_to '' do
     %i.fi-x.text-center
-  - if @treats.any?
-    %h6 Treats:
-    %ul
-      - @treats.each do |treat|
-        %li= treat
-    %hr
+  -# FIX THIS
+  -# - if @treats.any?
+  -#   %h6 Treats:
+  -#   %ul
+  -#     - @treats.each do |treat|
+  -#       %li= treat
+  -#   %hr
+  -# %hr
+  %h6 Administered:
+  %p= @administered
+  %hr
+  %h6 Metabolized:
+  %p= @metabolized_in
+  %hr
   %h6 Mechanism:
   %p= @mechanism
-  - if @side_effects.any?
-    %hr
-    %h6 Toxicity:
-    %ul
-      -@side_effects.each do |effect|
-        %li= effect
+  %hr
+  %h6 Toxicity:
+  %ul
+    - @side_effects.each do |effect|
+      %li= effect

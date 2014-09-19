@@ -17,9 +17,12 @@ class DrugsController < ApplicationController
     @drug = Drug.find(params[:id])
     if @drug
       @id = params[:id]
-      @treats = ['Nothing yet']
+      @treats = nil #FIX THIS
+      @administered = @drug.administered
+      @metabolized_in = @drug.metabolized_in
       @mechanism = @drug.mechanism || 'Unknown'
-      @side_effects = ['Death','Vomiting','Myelosuppression']
+      # @side_effects = ['Death','Vomiting','Myelosuppression']
+      @side_effects = @drug.tox_to_a
       render :show_preview
     else
       alert_js('ERROR: No such drug...')

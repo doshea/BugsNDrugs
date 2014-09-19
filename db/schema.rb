@@ -58,9 +58,13 @@ ActiveRecord::Schema.define(version: 20140915060954) do
   end
 
   create_table "drugs", force: true do |t|
-    t.string   "generic_name",  null: false
+    t.string   "generic_name",   null: false
     t.string   "chemical_name"
     t.string   "trade_name"
+    t.boolean  "csf"
+    t.string   "administered"
+    t.string   "toxicities"
+    t.string   "metabolized_in"
     t.text     "mechanism"
     t.boolean  "pending"
     t.integer  "order"

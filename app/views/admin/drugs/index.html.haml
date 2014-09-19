@@ -1,0 +1,23 @@
+%h3 New Drug
+.row
+  = render partial: 'admin/drugs/partials/form', locals: {new_drug: @new_drug}
+%br
+%h3 Current Drugs
+.row
+  %table
+    %thead
+      %tr
+        %th Link
+        %th Generic Name
+        %th Order
+        %th Drug Class
+        %th Administered
+        %th Metabolized
+        %th Toxicities
+        %th CSF?
+        %th Mechanism
+        %th
+        %th
+    %tbody
+      - @drugs.each do |drug|
+        = render partial: 'admin/drugs/partials/tr', locals: {drug: drug}
