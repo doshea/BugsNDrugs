@@ -25,13 +25,7 @@
           %ul.firster
             = render partial: 'partials/li', locals: {bc: bacteria.subclasses[2], bug_or_drug: true}
         .small-8.columns
-          = render partial: 'partials/multicolumn', locals: {bc: bacteria.subclasses[1], bug_or_drug: true, splits: [(0..1), (2..4)]}
-        -# .small-4.columns
-        -#   %ul.firster
-        -#     = render partial: 'partials/li', locals: {bc: bacteria.subclasses[1], bug_or_drug: true}
-        -# .small-4.columns
-        -#   %ul.firster
-        -#     = render partial: 'partials/li', locals: {bc: bacteria.subclasses[3], bug_or_drug: true}
+          = render partial: 'partials/multicolumn', locals: {bc: bacteria.subclasses[1], bug_or_drug: true, splits: [(0..4), (5..8)]}
     %hr
 
   %a{name: 'viruses', 'data-magellan-destination' => 'viruses'}

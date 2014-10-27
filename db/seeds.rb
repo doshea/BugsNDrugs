@@ -53,17 +53,39 @@ mycobacteria.add_bugs(['Mycobacterium tuberculosis', 'Mycobacterium leprae'])
 atypical_acid.add_bugs(['Mycoplasma pneumoniae'])
 
 #Gram Neg
-cocci, aerobic_coccobacilli, zoonoses, opportunistic, spirochetes = gram_negatives.add_child_classes(['Cocci', 'Aerobic Coccobacilli','Zoonoses', 'Opportunistic', 'Spirochetes'])
+cocci, aerobic_coccobacilli, lactose_fermenters, lactose_nonfermenters, zoonoses, curved, opportunistic, obligate_intracellular, spirochetes = gram_negatives.add_child_classes(['Cocci', 'Aerobic Coccobacilli','Lactose Fermenters','Lactose Non-fermenters','Zoonoses', 'Curved','Opportunistic', 'Obligate Intracellular','Spirochetes'])
 
 cocci.add_bugs(['Neisseria meningitidis', 'Neisseria gonorrohoea'])
 
 aerobic_coccobacilli.add_bugs(['Haemophilus influenzae', 'Bordatella pertussis', 'Listeria monocytogenes'])
+ecoli = lactose_fermenters.add_child_class('E. coli')
+ecoli.add_bugs(['ETEC','EPEC','EHEC'])
+lactose_fermenters.add_bugs(['Klebsiella pneumoniae', 'Enterobacter cloacae'])
 
+salmonella, yersinia = lactose_nonfermenters.add_child_classes(['Salmonella', 'Yersinia'])
+lactose_nonfermenters.add_child_class('Shigella')
+salmonella.add_bugs(['Salmonella typhii', 'Salmonella non-typhii'])
+yersinia.add_bugs(['Yersinia enterocolitica', 'Yersinia pestis'])
 
+vibrio, helical = curved.add_child_classes(['Vibrio','Helical'])
+vibrio.add_bugs(['Vibrio cholerae','Vibrio parahaemolyticus','Vibrio vulnificus'])
+helical.add_bugs(['Helicobacter pylori','Campylobacter jejuni'])
+opportunistic.add_bugs(['Pseudomonas aeruginosa', 'Bacteriodes fragilis'])
 
+zoonoses.add_bugs(['Francisella tularensis', 'Pasturella multocida', 'Capnocytophaga canimorsus', 'Streptobacillus moniliformis','Spirillum minus'])
+brucella = zoonoses.add_child_class('Brucella')
+brucella.add_bugs(['Brucella melitensis', 'Brucella abortis', 'Brucella suis', 'Brucella canis'])
+#TO DO: Add Legionella, Proteus mirabilis, H. ducreyi
 
 borrelia = spirochetes.add_child_class('Borrelia')
 borrelia.add_bugs(['Borrelia burgdorferi', 'Borrelia hermsii', 'Borrelia recurrentis'])
+
+chlamydia, rickettsia, bartonella = obligate_intracellular.add_child_classes(['Chlamydia','Rickettsia','Bartonella'])
+chlamydia.add_bugs(['Chlamydia trachomatis','Chlamydia psittaci'])
+rickettsia.add_bugs(['Rickettsia rickettsii','Rickettsia prowazeki','Rickettsia typhii','Orientia tsutsumaguchi'])
+bartonella.add_bugs(['Bartonella henselae', 'Bartonella quintana'])
+obligate_intracellular.add_bugs(['Ehrlichia chafeensis', 'Anaplasma phagocytophilum','Coxiella burnetii'])
+
 
 #Spirochetes
 spirochetes.add_bugs(['Leptospira interogans', 'Treponema pallidum', 'Haemophilus ducreyi'])
