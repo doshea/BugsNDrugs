@@ -100,7 +100,7 @@ pox.add_bugs(['Smallpox', 'Vaccinia', 'Molluscum contagiosum'])
 herpes.add_bugs(['HSV1', 'HSV2', 'VZV', 'EBV', 'CMV', 'HHV6', 'HHV7', 'HHV8'])
 papilloma.add_bugs(['HPV'])
 polyoma.add_bugs(['JC', 'BK'])
-ds_dna.add_bugs(['Adenoma'])
+ds_dna.add_bugs(['Adenovirus'])
 
 parvo, dependo = ss_dna.add_child_classes(['Parvo','Dependo'])
 parvo.add_bugs(['B19'])
