@@ -1,15 +1,24 @@
 = render partial: 'layouts/errors', locals: {error_object: @user}
 = form_for @user, url: url_for(controller: 'admin/users', action: :update) do |f|
-  = f.label :first_name
-  = f.text_field :first_name
-  = f.label :last_name
-  = f.text_field :last_name
-  = f.label :username
-  = f.text_field :username
-  = f.label :email
-  = f.text_field :email
-  = f.label :image
-  = f.text_field :image
-  = f.label :auth_token
-  = f.text_field :auth_token
+  .large-4.columns
+    = f.label :first_name
+    = f.text_field :first_name
+  .large-4.columns
+    = f.label :last_name
+    = f.text_field :last_name
+  .large-4.columns
+    = f.label :username
+    = f.text_field :username
+  .large-4.columns
+    = f.label :email
+    = f.text_field :email
+  .large-8.columns
+    = f.label :image
+    = f.text_field :image
+  .large-4.columns
+    = f.label :is_admin
+    = f.check_box :is_admin
+  .large-8.columns
+    = f.label :auth_token
+    = f.text_field :auth_token
   = f.submit 'Submit', class: 'button'
