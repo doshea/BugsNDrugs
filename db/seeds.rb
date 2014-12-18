@@ -40,7 +40,7 @@ staph, strep, enterococci, sporulating, filamentous = gram_positives.add_child_c
 bacillus, clostridia = sporulating.add_child_classes(['Bacillus', 'Clostridium'])
 
 staph.add_bugs(['Staphylococcus aureus', 'Staphylococcus epidermidis', 'Staphylococcus saprophyticus', 'Staphylococcus lugdunensis'])
-strep.add_bugs(['Streptococcus pyogenes', 'Streptococcus agalactiae', 'Streptococcus pneumo', 'Streptococcus viridans', 'Streptococcus pneumoniae', 'Streptococcus bovis'])
+strep.add_bugs(['Streptococcus pyogenes', 'Streptococcus agalactiae', 'Streptococcus pneumoniae', 'Streptococcus viridans', 'Streptococcus bovis'])
 enterococci.add_bugs(['Enterococcus faecalis', 'Enterococcus faecium'])
 bacillus.add_bugs(['Bacillus anthracis', 'Bacillus cereus'])
 clostridia.add_bugs(['Clostridium perfringens','Clostridium diff', 'Clostridium tetani', 'Clostridium bolutinum'])

@@ -27,7 +27,7 @@ class Bug < ActiveRecord::Base
   belongs_to :branch, class_name: 'BugClass', foreign_key: 'bug_class_id'
   
   has_and_belongs_to_many :symptoms
-  has_and_belongs_to_many :syndromes
+  # has_and_belongs_to_many :syndromes
 
   mount_uploader :image, BugPicUploader
 
