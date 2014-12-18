@@ -1,10 +1,20 @@
 %h1.text-center Welcome
 %hr
 %section
-  Welcome to BugsNDrugs, a truly inspiring site where users can register, log in, and
-  %em even
-  log out!
+  %p
+    %b BugsNDrugs
+    is a tool for understanding the interactions between
+    =link_to 'microorganisms', bugs_path
+    ,
+    = link_to 'medications', drugs_path
+    , and
+    =link_to 'illness', symptoms_path
+    , developed in accordance with the UW School of Medicine curriculum.
+  %p The core philosophy behind this site is that study tools should be 1) useful, 2) complete and 3) engaging.
+  %hr
+  %p
+    If you have suggestions for features or fixes, please email me at
+    %a{href:'mailto:doshea@uw.edu'} doshea@uw.edu
 %hr
-%p
-  %b Browser requirements:
-  This site is developed for Webkit browsers (Chrome, Safari) with some Firefox testing. It is unlikely to work in Internet Explorer (particularly old versions).
+%h4.centered Browser requirements
+%p This site is developed for Webkit browsers (Chrome, Safari) with some Firefox testing. It is unlikely to perform in older versions of IE.
