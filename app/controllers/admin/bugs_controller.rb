@@ -4,7 +4,7 @@ class Admin::BugsController < ApplicationController
 
   def index
     @new_bug = Bug.new
-    @bugs = Bug.all
+    @bugs = Bug.all.order(:id, :order)
   end
 
   def create
