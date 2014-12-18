@@ -2,7 +2,7 @@
   %td
     = link_to bug do
       %i.fi-link
-  %td= bug.name
+  %td= link_to bug.name, edit_admin_bug_path(bug)
   %td= bug.order
   %td= bug.bug_class ? (link_to bug.bug_class.name, bug.bug_class) : 'N/A'
   %td

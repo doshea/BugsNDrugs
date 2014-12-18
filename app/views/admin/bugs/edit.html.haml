@@ -1,2 +1,6 @@
+%h1
+  Editing
+  %i #{@bug.name}
+%hr
 = form_for @bug, url: admin_bug_path(@bug), method: :patch, remote: true do |f|
   = render partial: 'admin/bugs/partials/form_contents', locals: {f: f}
