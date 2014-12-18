@@ -28,9 +28,12 @@
   .small-6.columns
     = f.label :growth_pattern, 'Growth Pattern (~1 sentence)'
     = f.text_field :growth_pattern
-  .small-6.columns
-    = f.label :image, 'Image (URL)'
-    = f.text_field :image
+  .small-2.columns
+    = f.label :image, 'Image (File)'
+    = f.file_field :image
+  .small-4.columns
+    = f.label :image, 'OR Image (URL)'
+    = f.url_field :remote_image_url
 .row
   .small-6.columns
     = f.label :brief_description, 'Brief Description (full sentences)'

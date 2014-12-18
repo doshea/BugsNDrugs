@@ -21,7 +21,7 @@
     %p= @bug.toxins
   - if @bug.image
     %hr
-    =image_tag @bug.image
+    =image_tag @bug.image.preview
   - if @bug.motile || @bug.encapsulated
     %hr
     %p

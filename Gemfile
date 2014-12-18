@@ -20,7 +20,7 @@ gem 'memcachier'
 
 # AWS image upload gems
 gem 'carrierwave'
-gem 'fog'
+gem 'fog', '1.25'
 gem 'rmagick', require: false
 gem 'remotipart'
 gem 'unf'

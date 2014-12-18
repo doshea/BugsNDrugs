@@ -1,4 +1,4 @@
-class ShowPicUploader < CarrierWave::Uploader::Base
+class BugPicUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::RMagick
 
@@ -24,18 +24,18 @@ class ShowPicUploader < CarrierWave::Uploader::Base
 
   #TODO Change these to more relevant sizes
   version :large_unaltered do
-    process :resize_to_fit => [225, 225]
+    process :resize_to_fit => [500, 500]
   end
 
-  version :medium_altered, from_version: :large_unaltered do
-    process :resize_to_fill => [100, 100]
+  version :preview do
+    process :resize_to_fit => [300,1000]
   end
 
-  version :medium_unaltered, from_version: :large_unaltered do
-    process :resize_to_fit => [75, 75]
+  version :preview_fill do
+    process :resize_to_fill => [300, 300]
   end
 
-  version :small_altered, from_version: :medium_altered do
+  version :small_altered do
     process :resize_to_fill => [50, 50]
   end
 
