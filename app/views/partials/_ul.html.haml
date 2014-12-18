@@ -9,6 +9,6 @@
         -#     BEEF
         .preview-container
           - if bug_or_drug
-            = link_to leaf.abbreviated_initial, leaf
+            = link_to leaf.abbreviated_initial, show_preview_bug_path(leaf),remote: true
           - else
             = link_to leaf.generic_name, show_preview_drug_path(leaf),remote: true

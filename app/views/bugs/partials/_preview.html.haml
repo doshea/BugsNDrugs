@@ -1,0 +1,30 @@
+.preview
+  .nib
+  = link_to @bug, target: '_blank' do
+    %i.fi-link.text-center
+  = link_to '' do
+    %i.fi-x.text-center
+  %h6 Description:
+  %p= @bug.brief_description
+  - if @bug.morphology
+    %hr
+    %h6 Morphology:
+    %p @bug.morphology
+  - if @bug.growth_pattern
+    %hr
+    %h6 Growth Pattern:
+    %p @bug.growth_pattern
+  - if @bug.toxins
+    %hr
+    %h6 Toxins
+    %p @bug.toxins
+  - if @bug.image
+    %hr
+    =image_tag @bug.image
+  - if @bug.motile || @bug.encapsulated
+    %hr
+    %p
+      -if @bug.motile
+        Motile
+      -if @bug.encapsulated
+        Encapsulated
