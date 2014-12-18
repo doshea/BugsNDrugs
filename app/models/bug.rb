@@ -29,6 +29,8 @@ class Bug < ActiveRecord::Base
   has_and_belongs_to_many :symptoms
   has_and_belongs_to_many :syndromes
 
+  mount_uploader :image, BugPicUploader
+
   def abbreviated_initial
     array = name.split(' ')
     if array.length > 1

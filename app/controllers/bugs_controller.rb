@@ -17,11 +17,6 @@ class BugsController < ApplicationController
     @bug = Bug.find(params[:id])
     if @bug
       @id = params[:id]
-      @administered = @bug.try(:administered)
-      @metabolized_in = @bug.try(:metabolized_in)
-      @mechanism = @bug.try(:mechanism) || 'Unknown'
-      # @side_effects = ['Death','Vomiting','Myelosuppression']
-      @side_effects = @bug.try(:tox_to_a)
       render :show_preview
     else
       alert_js('ERROR: No such bug...')

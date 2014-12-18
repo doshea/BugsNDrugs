@@ -45,6 +45,11 @@
     background: white;
     position: relative;
   }
+  .bug {
+    .name {
+      font-style: italic;
+    }
+  }
   ul {
     border-left: 1px solid black;
     margin-bottom: 0;
@@ -86,8 +91,25 @@
   position: relative;
   display: inline-block;
 }
-.preview {
+.bug .preview {
+  width: 20em;
+  h5 {
+    background-color: inherit;
+    margin: 0;
+    font-size: larger;
+  }
+  p {
+    font-size: small;
+  }
+  h6 {
+    font-weight: bold;
+  }
+}
+.drug .preview {
   width: 15em;
+}
+
+.preview {
   padding: 0.5em 1em;
   display: none;
   position: absolute;

@@ -1,11 +1,11 @@
 .row
-  .large-3.columns
+  .small-3.columns
     = f.label :name
     = f.text_field :name
-  .large-3.columns
+  .small-3.columns
     = f.label :common_name
     = f.text_field :common_name
-  .large-3.columns.end
+  .small-3.columns.end
     = f.label :bug_class_id
     %select{name: 'bug[bug_class_id]', id: 'bug[bug_class_id]'}
       - BugClass.top_tier.each do |bc|
@@ -15,27 +15,36 @@
 -# .large-1.columns
 -#   = f.number_field :order
 .row
-  .large-3.columns
+  .small-3.columns
     = f.label :gram_stain, 'Gram Stain (Positive, Negative, etc)'
     = f.text_field :gram_stain
-  -# .large-3.columns
+  -# .small-3.columns
   -#   = f.label :environment
   -#   = f.text_field :environment
-  .large-6.columns.end
+  .small-6.columns.end
     = f.label :morphology
     = f.text_field :morphology
 .row
-  .large-12.columns
+  .small-6.columns
     = f.label :growth_pattern, 'Growth Pattern (~1 sentence)'
     = f.text_field :growth_pattern
+  .small-6.columns
+    = f.label :image, 'Image (URL)'
+    = f.text_field :image
 .row
-  .large-6.columns
+  .small-6.columns
     = f.label :brief_description, 'Brief Description (full sentences)'
     = f.text_area :brief_description, rows: 5
-  .large-6.columns
+  .small-6.columns
     = f.label :description, 'Full Description (full paragraphs)'
     = f.text_area :description, rows: 5
+.row
+  .small-3.columns
+    = f.label :motile
+    = f.check_box :motile
+  .small-3.columns
+    = f.label :encapsulated
+    = f.check_box :encapsulated
 
-
-.large-2.columns
+.small-2.columns
   = f.submit 'Submit', class: 'button tiny'
