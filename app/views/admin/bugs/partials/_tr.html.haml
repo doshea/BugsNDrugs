@@ -2,11 +2,11 @@
   %td
     = link_to bug do
       %i.fi-link
-  %td= link_to bug.name, edit_admin_bug_path(bug)
+  %td= link_to bug.name, edit_admin_bug_path(bug), target: '_blank'
   %td= bug.order
-  %td= bug.bug_class ? (link_to bug.bug_class.name, bug.bug_class) : 'N/A'
+  %td= bug.bug_class ? (link_to bug.bug_class.name, bug.bug_class, target: '_blank') : 'N/A'
   %td
-    = link_to edit_admin_bug_path(bug) do
+    = link_to edit_admin_bug_path(bug), target: '_blank' do
       %i.fi-pencil
   %td
     = link_to admin_bug_path(bug), method: :delete, remote: true, data: {confirm: "Are you SURE you want to delete #{bug.name}?"} do
