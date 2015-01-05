@@ -13,6 +13,13 @@
 class Symptom < ActiveRecord::Base
   has_and_belongs_to_many :syndromes
 
+  include PgSearch
+  pg_search_scope :starts_with,
+    against: [:name],
+    using: {
+      tsearch: {prefix: true}
+    }
+
   has_many :side_effects, as: :taggable, dependent: :destroy
   has_many :drugs, through: :side_effects
 end

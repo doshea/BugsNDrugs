@@ -16,6 +16,12 @@
       %li.divider
     -# Middle
     %ul.middle
+      %li.has-form#top-search
+        .row.collapse
+          .small-12.columns
+            = search_field_tag 'query', nil, class: 'round', autocomplete: 'off'
+            %i.fi-magnifying-glass
+        %ul#live-results
 
     -# Right Nav Section
     %ul.right

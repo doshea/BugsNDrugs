@@ -4,6 +4,7 @@ BugsNDrugs::Application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/login' => 'sessions#destroy'
+  get '/live_search' => 'pages#live_search'
 
   resources :users, only: [:new, :create]
   resources :bugs, only: [:index, :show] do

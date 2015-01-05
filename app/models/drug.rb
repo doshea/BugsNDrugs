@@ -26,6 +26,12 @@ class Drug < ActiveRecord::Base
   has_many :symptoms, through: :side_effects, source: :effectable, source_type: 'Symptom'
   has_many :syndromes, through: :side_effects, source: :effectable, source_type: 'Syndrome'
 
+  include PgSearch
+  pg_search_scope :starts_with,
+    against: [:generic_name, :chemical_name, :trade_name],
+    using: {
+      tsearch: {prefix: true}
+    }
 
   def tox_to_a
     toxicities.present? ? toxicities.split(/, ?/) : ['None']

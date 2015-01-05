@@ -16,4 +16,5 @@
 //
 //= require main
 //= require admin
+//= require global
 $(document).foundation();

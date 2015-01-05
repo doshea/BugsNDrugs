@@ -25,6 +25,13 @@ class BugClass < ActiveRecord::Base
 
   scope :top_tier, -> { where(tier: 0) }
 
+  include PgSearch
+  pg_search_scope :starts_with,
+    against: [:name],
+    using: {
+      tsearch: {prefix: true}
+    }
+
   def tiered_name
     '-' * tier + name
   end

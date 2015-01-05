@@ -25,6 +25,13 @@ class DrugClass < ActiveRecord::Base
 
   scope :top_tier, -> { where(tier: 0) }
 
+  include PgSearch
+  pg_search_scope :starts_with,
+    against: [:name],
+    using: {
+      tsearch: {prefix: true}
+    }
+
   def child_count
     # TODO make this use a counter, it is way too CPU intensive
     preliminary_count = subclasses.map{|bc| bc.child_count}.reduce(:+)

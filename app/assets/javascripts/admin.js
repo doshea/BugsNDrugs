@@ -16,4 +16,5 @@ function ready_stuff(){
     $('.edit').hide()
     $(this).parent().siblings('.name').hide().siblings('.edit').show().focus();
   })
+  global.ready();
 }

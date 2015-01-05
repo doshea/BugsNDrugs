@@ -31,6 +31,13 @@ class Bug < ActiveRecord::Base
 
   mount_uploader :image, BugPicUploader
 
+  include PgSearch
+  pg_search_scope :starts_with,
+    against: [:name, :common_name],
+    using: {
+      tsearch: {prefix: true}
+    }
+
   def abbreviated_initial
     array = name.split(' ')
     if array.length > 1

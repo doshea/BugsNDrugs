@@ -7,3 +7,6 @@
 %h1.bug
   %span.gram{class: @bug.gram_stain}
   = @bug.name
+%p
+  %b Description:
+  = (@bug.description if @bug.description.present?) || @bug.brief_description
