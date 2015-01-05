@@ -1,0 +1,42 @@
+- if @result_count > 0
+  - if @bug_classes.any?
+    %h6 Bug Classes
+    - @bug_classes.each do |bug_class|
+      = link_to bug_class do
+        %li
+          = bug_class.name
+    %hr
+
+  - if @bugs.any?
+    %h6 Bugs
+    - @bugs.each do |bug|
+      = link_to bug do
+        %li
+          = bug.abbreviated_initial
+    %hr
+
+  - if @drug_classes.any?
+    %h6 Bug Classes
+    - @drug_classes.each do |drug_class|
+      = link_to drug_class do
+        %li
+          = drug_class.name
+    %hr
+
+  - if @drugs.any?
+    %h6 Drugs
+    - @drugs.each do |drug|
+      = link_to drug do
+        %li
+          = drug.generic_name
+    %hr
+
+  - if @symptoms.any?
+    %h6 Symptoms
+    - @symptoms.each do |symptom|
+      = link_to symptom do
+        %li
+          = symptom.name
+    %hr
+- else 
+  No results found
