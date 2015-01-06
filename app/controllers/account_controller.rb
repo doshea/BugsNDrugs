@@ -6,7 +6,7 @@ class AccountController < ApplicationController
 
   def update
     @current_user.update_attributes(profile_params)
-    render :show
+    redirect_to account_path
   end
 
   def change_password

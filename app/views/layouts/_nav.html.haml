@@ -46,16 +46,16 @@
           Symptoms
       %li.divider      
       - if @current_user
-        %li.has-dropdown
-          = link_to '#' do
+        %li.has-dropdown#user-menu
+          %a#profile-tease
             = image_tag @current_user.image.thumb, class: 'profile-pic-updateable'
             = @current_user.username
           %ul.dropdown
-            %li
+            %li.divider
               = link_to account_path do
                 %i.fi-torso
                 Account
-            %li
+            %li.divider
               = link_to login_path, method: :delete do
                 %i.fi-power{style: 'color: #f55;'}
                 Log out

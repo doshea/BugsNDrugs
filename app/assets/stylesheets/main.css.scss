@@ -1,5 +1,8 @@
 /* This will contain global css for your application */
 
+$husky-purple: #39275b;
+$light-husky-purple: lighten($husky-purple, 50%);
+
 @mixin no-select {
   &::selection {
     background-color: transparent;
@@ -44,9 +47,11 @@ body
   padding-bottom: 7em;
 }
 
+
+// NAV
 header {
   @include no-select-container;
-  background: #39275b;
+  background: $husky-purple;
   margin-bottom: 1em;
 
   nav {
@@ -55,6 +60,21 @@ header {
     .icon {
       height: 2em;
     }
+  }
+}
+#user-menu {
+  #profile-tease {
+    img {
+      max-width: 2.08em;
+      max-height: 60%;
+      vertical-align: middle;
+    }
+  }
+  li.divider {
+    border-color: $light-husky-purple;
+  }
+  ul.dropdown {
+    border: 1px solid $husky-purple;
   }
 }
 
@@ -82,7 +102,7 @@ footer {
   bottom: 0;
   height: 7em;
   width: 100%;
-  background: #39275b;
+  background: $husky-purple;
   padding: 0.5em;
 }
 #footer-logo {
@@ -105,8 +125,7 @@ footer {
   z-index: 0;
   height: 3em;
   width: 100%;
-  opacity: 0.5;
-  background: white;
+  background: $light-husky-purple;
 
 }
 
