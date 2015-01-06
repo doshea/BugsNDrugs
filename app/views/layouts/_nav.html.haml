@@ -15,16 +15,16 @@
           = link_to 'Admin', admin_path
       %li.divider
     -# Middle
-    %ul.middle
+    -# %ul.middle
+
+    -# Right Nav Section
+    %ul.right
       %li.has-form#top-search
         .row.collapse
           .small-12.columns
             = search_field_tag 'query', nil, class: 'round', autocomplete: 'off'
             %i.fi-magnifying-glass
         %ul#live-results
-
-    -# Right Nav Section
-    %ul.right
       %li.divider
       %li
         -# Icon is 'Biohazard' by Shailendra Chouhan from The Noun Project
@@ -48,6 +48,7 @@
       - if @current_user
         %li.has-dropdown
           = link_to '#' do
+            = image_tag @current_user.image.thumb, class: 'profile-pic-updateable'
             = @current_user.username
           %ul.dropdown
             %li

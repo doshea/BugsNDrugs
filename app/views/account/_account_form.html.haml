@@ -6,5 +6,6 @@
   = f.label :last_name
   = f.text_field :last_name
   = f.label :image
-  = f.password_field :image
+  = f.text_field :remote_image_url, placeholder: 'Ex. www.panda-pics.com/panda.pg'
+  = f.file_field :image
   = f.submit 'Update', class: 'button'

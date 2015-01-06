@@ -1,5 +1,32 @@
 /* This will contain global css for your application */
 
+@mixin no-select {
+  &::selection {
+    background-color: transparent;
+  }
+  &::moz-selection {
+    background-color: transparent;
+  }
+  &::webkit-selection {
+    background-color: transparent;
+  }
+  ::selection {
+    background-color: transparent;
+  }
+  ::moz-selection {
+    background-color: transparent;
+  }
+  ::webkit-selection {
+    background-color: transparent;
+  }
+}
+@mixin no-select-container {
+  @include no-select;
+  * {
+    @include no-select;
+  }
+}
+
 html{
   height: 100%;
 }
@@ -18,6 +45,7 @@ body
 }
 
 header {
+  @include no-select-container;
   background: #39275b;
   margin-bottom: 1em;
 
@@ -81,10 +109,6 @@ footer {
   background: white;
 
 }
-
-
-
-
 
 .magellan {
   visibility: hidden;

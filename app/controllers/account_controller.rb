@@ -18,7 +18,7 @@ class AccountController < ApplicationController
 
   private ###
   def profile_params
-    params.require(:user).permit(:first_name, :last_name, :image)
+    params.require(:user).permit(:first_name, :last_name, :image, :remote_image_url)
   end
   def password_params
     params.require(:user).permit(:password, :password_confirmation)
