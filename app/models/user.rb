@@ -9,7 +9,7 @@
 #  username        :string(255)
 #  is_admin        :boolean
 #  password_digest :string(255)
-#  image           :string(255)
+#  image           :text
 #  auth_token      :string(255)
 #  created_at      :datetime
 #  updated_at      :datetime
@@ -17,6 +17,8 @@
 
 class User < ActiveRecord::Base
   has_secure_password
+  
+  mount_uploader :image, AccountPicUploader
   
   before_create { generate_token(:auth_token) }
 

@@ -6,14 +6,15 @@
 #  generic_name   :string(255)      not null
 #  chemical_name  :string(255)
 #  trade_name     :string(255)
-#  csf            :boolean
-#  administered   :string(255)
-#  toxicities     :string(255)
-#  metabolized_in :string(255)
 #  mechanism      :text
+#  administered   :string(255)
+#  metabolized_in :string(255)
+#  csf            :boolean
+#  toxicities     :string(255)
+#  obscure        :boolean
 #  pending        :boolean
-#  order          :integer
 #  drug_class_id  :integer
+#  order          :integer
 #  created_at     :datetime
 #  updated_at     :datetime
 #
