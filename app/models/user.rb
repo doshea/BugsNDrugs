@@ -52,12 +52,14 @@ class User < ActiveRecord::Base
     length: { minimum: MIN_USERNAME_LENGTH, maximum: MAX_USERNAME_LENGTH, message: ": Should be #{MIN_USERNAME_LENGTH}-#{MAX_USERNAME_LENGTH} characters"}
 
   MIN_NAME_LENGTH = 2
+  MAX_FIRST_NAME_LENGTH = 18 #hard-coded in database
+  MAX_LAST_NAME_LENGTH = 24 #hard-coded in database
   validates :first_name,
     allow_blank: true,
-    length: { minimum: MIN_NAME_LENGTH, message: ": Should be at least #{MIN_NAME_LENGTH} characters"}
+    length: { minimum: MIN_NAME_LENGTH, maximum: MAX_FIRST_NAME_LENGTH, message: ": Should be at least #{MIN_NAME_LENGTH} characters"}
   validates :last_name,
     allow_blank: true,
-    length: { minimum: MIN_NAME_LENGTH, message: ": Should be at least #{MIN_NAME_LENGTH} characters"}
+    length: { minimum: MIN_NAME_LENGTH, maximum: MAX_LAST_NAME_LENGTH, message: ": Should be at least #{MIN_NAME_LENGTH} characters"}
 
     def generate_token(column)
       begin
