@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 ruby '2.2.0'
-gem 'rails', '4.1.5'
+gem 'rails'
 
 gem 'pg'
 gem 'haml'
@@ -70,7 +70,6 @@ end
 
 group :production do
   gem 'rails_12factor'
-  # gem 'rails_serve_static_assets'
 end
 
 group :production, :development do
