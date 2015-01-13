@@ -1,3 +1,6 @@
+@import 'colors';
+@import 'global_mixins';
+
 .gram.positive {
   color: #350bad;
   font-weight: 800;
@@ -15,17 +18,11 @@
 .bug-list, .drug-list {
   i {
     opacity: 0;
-    -webkit-transition: opacity 0.2s;
-    -moz-transition: opacity 0.2s;
-    -o-transition: opacity 0.2s;
-    transition: opacity 0.2s;
+    @include transition(opacity, 0.2s);
   }
   h5{
     background: #ccc;
     margin: 0 0 0 1.1em;
-    // border-left: 1px solid black;
-    // padding-bottom: 0.25em;
-
     a {
       color: #555;
       &:hover {
@@ -116,13 +113,9 @@
   left: 130%;
   top: -1.5em;
   z-index: 11;
-  // background: lighten(#39275b, 50%);
   background: white;
   border: 1px solid #aaa;
-  -moz-box-shadow: 3px 3px 5px black;
-  -ms-box-shadow: 3px 3px 5px black;
-  -webkit-box-shadow: 3px 3px 5px black;
-  box-shadow: 3px 3px 5px black;
+  @include box-shadow(3px, 3px, 5px, black);
 
   .nib {
     position: absolute;
@@ -164,16 +157,11 @@
     width: 1.2em;
     height: 1.2em;
     border: 1px solid black;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
+    @include border-radius(5px);
     color: #333;
     background: whitesmoke;
     line-height: 1em;
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
-    -o-transition: all 0.2s;
-    transition: all 0.2s;
+    @include transition(all, 0.2s);
     &:hover {
       background: #ccc;
       opacity: 1;
