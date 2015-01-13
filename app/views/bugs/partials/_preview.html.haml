@@ -8,7 +8,7 @@
     = link_to @bug.name, @bug, target: '_blank'
   %hr
   - admin_version = @current_user && @current_user.is_admin?
-  - optionals = [:morphology, :growth_pattern, :toxins]
+  - optionals = [:morphology, :environment, :growth_pattern, :toxins]
   - booleans = [:motile, :encapsulated]
   = editable_p(@bug, :brief_description, admin_version)
   - if admin_version
