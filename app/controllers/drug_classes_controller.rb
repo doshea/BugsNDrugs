@@ -1,8 +1,8 @@
 class DrugClassesController < ApplicationController
 
   def show
-    @bc = DrugClass.find(params[:id])
-    child = @bc
+    @dc = DrugClass.find(params[:id])
+    child = @dc
     @lineage = []
     while child.drug_class
       @lineage = [child.drug_class] + @lineage

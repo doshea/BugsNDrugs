@@ -20,8 +20,8 @@ class DrugClass < ActiveRecord::Base
   has_many :subclasses, class_name: 'DrugClass', foreign_key: 'drug_class_id'
   belongs_to :superclass, class_name: 'DrugClass', foreign_key: 'drug_class_id'
 
-  has_many :drugs, inverse_of: :drug_class
-  has_many :leafs, class_name: 'Drug', foreign_key: 'drug_class_id'
+  # has_many :drugs, inverse_of: :drug_class
+  has_many :leafs, -> {order(:order)}, class_name: 'Drug', foreign_key: 'drug_class_id'
 
   scope :top_tier, -> { where(tier: 0) }
 

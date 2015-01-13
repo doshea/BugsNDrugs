@@ -3,10 +3,7 @@
     - bc.subclasses.each do |sc|
       = render partial: 'partials/li', locals: {bc: sc, bug_or_drug: bug_or_drug}
     - bc.leafs.each do |leaf|
-      = content_tag_for(:li, leaf,class: ('obscure' if leaf.try(:obscure))) do
-        -# - unless bug_or_drug
-        -#   = link_to show_preview_drug_path(leaf), remote: true do
-        -#     BEEF
+      = content_tag_for :li, leaf, class: ('obscure' if leaf.try(:obscure)), data: {order: leaf.order} do
         .preview-container
           - if bug_or_drug
             = link_to leaf.abbreviated_initial, show_preview_bug_path(leaf),remote: true, class: 'name'

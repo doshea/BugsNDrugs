@@ -14,10 +14,10 @@
 #  toxins            :text
 #  order             :integer
 #  image             :text
-#  bug_class_id      :integer
-#  motile            :boolean          default(FALSE)
-#  encapsulated      :boolean          default(FALSE)
+#  motile            :boolean          default("false")
+#  encapsulated      :boolean          default("false")
 #  pending           :boolean
+#  bug_class_id      :integer
 #  created_at        :datetime
 #  updated_at        :datetime
 #

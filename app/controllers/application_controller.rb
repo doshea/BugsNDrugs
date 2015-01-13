@@ -21,4 +21,7 @@ class ApplicationController < ActionController::Base
   def alert_js(s)
     render js: "alert('#{s}');"
   end
+  def console_js(s)
+    render js: "console.log('#{s}');"
+  end
 end

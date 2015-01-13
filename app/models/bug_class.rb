@@ -11,6 +11,7 @@
 #  pending      :boolean
 #  created_at   :datetime
 #  updated_at   :datetime
+#  description  :text
 #
 
 class BugClass < ActiveRecord::Base
@@ -20,8 +21,8 @@ class BugClass < ActiveRecord::Base
   belongs_to :superclass, class_name: 'BugClass', foreign_key: 'bug_class_id'
   has_many :subclasses, class_name: 'BugClass', foreign_key: 'bug_class_id'
 
-  has_many :bugs, -> { order(:order) }, inverse_of: :bug_class
-  has_many :leafs, class_name: 'Bug', foreign_key: 'bug_class_id'
+  # has_many :bugs, -> { order(:order) }, inverse_of: :bug_class
+  has_many :leafs, -> {order(:order)}, class_name: 'Bug', foreign_key: 'bug_class_id'
 
   scope :top_tier, -> { where(tier: 0) }
 

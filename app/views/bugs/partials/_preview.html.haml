@@ -1,31 +1,39 @@
 .preview
   .nib
-  = link_to @bug, target: '_blank' do
-    %i.fi-link.text-center
-  = link_to '' do
-    %i.fi-x.text-center
-  %h5.name= @bug.name
+  -# = link_to @bug, target: '_blank' do
+  -#   %i.fi-link.text-center
+  -# = link_to '' do
+  -#   %i.fi-x.text-center
+  %h5.name
+    = link_to @bug.name, @bug, target: '_blank'
   %hr
-  %p= @bug.brief_description
-  - if @bug.morphology
+  - admin_version = @current_user && @current_user.is_admin?
+  - optionals = [:morphology, :growth_pattern, :toxins]
+  - booleans = [:motile, :encapsulated]
+  = editable_p(@bug, :brief_description, admin_version)
+  - if admin_version
+    - optionals.each do |o|
+      %hr
+      %h6= o.to_s.titleize
+      = editable_p(@bug, o, admin_version)
+    
     %hr
-    %h6 Morphology:
-    %p= @bug.morphology
-  - if @bug.growth_pattern
-    %hr
-    %h6 Growth Pattern:
-    %p= @bug.growth_pattern
-  - if @bug.toxins
-    %hr
-    %h6 Toxins
-    %p= @bug.toxins
-  - if @bug.image
-    %hr
-    =image_tag @bug.image.preview
-  - if @bug.motile || @bug.encapsulated
-    %hr
-    %p
-      -if @bug.motile
-        Motile
-      -if @bug.encapsulated
-        Encapsulated
+      - if @bug.image.file
+        = image_tag @bug.image.preview
+      -else
+        %h6 Image
+        = editable_img(@bug, :image, admin_version)
+  - else
+    - optionals.each do |o|
+      - if @bug.send(o)
+        %hr
+        %h6= o.to_s.titleize
+        = @bug.send(o)
+    - if @bug.image.file
+      %hr
+      =image_tag @bug.image.preview
+  %hr
+  %p
+    -booleans.each do |b|
+      - if @bug.send(b)
+        = b.to_s.titleize

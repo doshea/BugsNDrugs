@@ -17,7 +17,7 @@ class Admin::BugsController < ApplicationController
 
   def update
     if @bug.update_attributes(admin_params)
-      alert_js('SUCCESS bug updated.')
+      console_js('SUCCESS bug updated.')
     else
       alert_js('!!!ERROR updating bug!!!')
     end

@@ -17,7 +17,7 @@ class Admin::DrugsController < ApplicationController
 
   def update
     if @drug.update_attributes(admin_params)
-      alert_js('SUCCESS drug updated.')
+      console_js('SUCCESS drug updated.')
     else
       alert_js('!!!ERROR updating drug!!!')
     end
