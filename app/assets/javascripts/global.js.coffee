@@ -1,9 +1,12 @@
 window.global =
+  ENTER : 13
 
   ready: ->
     $('nav').on('keyup', '#query', global.live_search)
     $('.bug').on('blur', '.admin-editable[contenteditable]', global.update_editable_bug)
     $('.bug').on('dblclick','.admin-editable' , global.become_editable)
+    $('.bug').on('keyup', '.admin-editable-array input', global.add_array_el)
+    $('.bug').on('dblclick', '.admin-editable-array li', global.remove_array_el)
 
   live_search: ->
     query = $('#query').val()
@@ -40,6 +43,40 @@ window.global =
         bug: param_hash
     $.ajax(settings)
 
+  #Array Editing
+  add_array_el: (e) ->
+    key = e.which
+    if key == global.ENTER
+      contents = $(this).val()
+      if contents.length > 1
+        container = $(this).closest('.admin-editable-array')
+        ul = container.children('ul').first()
+        li = $("<li>#{contents}</li>")
+        ul.append(li)
+        $(this).val('')
+        global.update_array(container)
 
+  remove_array_el: ->
+    container = $(this).closest('.admin-editable-array')
+    $(this).remove()
+    global.update_array(container)
+
+  update_array: (container) ->
+    bug_el = container.closest('.bug')
+    id = bug_el.attr('id').substring(4)
+    param = container.data('param')
+    lis = container.find('li')
+    content = $.map lis, (v, k) ->
+      $(v).text().trim()
+    param_hash = new Object();
+    param_hash[param] = content;
+
+    settings =
+      dataType: 'script'
+      type: 'PATCH'
+      url: "/admin/bugs/#{id}/update_array"
+      data:
+        bug: param_hash
+    $.ajax(settings)
 
 # $(document).ready(global.ready)

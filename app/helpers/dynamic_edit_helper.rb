@@ -22,4 +22,21 @@ module DynamicEditHelper
     end
   end
 
+  def editable_array(obj, attribute, condition, fallback_text='EMPTY')
+    capture_haml do
+      haml_tag :div, class: "#{'admin-editable-array' if condition}", data: {param: attribute} do 
+        haml_tag :ul do
+          obj.send(attribute).each do |el|
+            haml_tag :li do
+              haml_concat el
+            end
+          end
+        end
+        if condition
+          haml_tag :input, type: 'text', placeholder: 'Add your own'
+        end
+      end
+    end
+  end
+
 end

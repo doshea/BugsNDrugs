@@ -30,7 +30,11 @@ BugsNDrugs::Application.routes.draw do
   namespace :admin do
     get '/', to: :index
     resources :users, only: [:index, :edit, :update, :destroy]
-    resources :bugs, except: :show
+    resources :bugs, except: :show do
+      member do
+        patch :update_array
+      end
+    end
     resources :drugs, except: :show
     resources :drug_classes, except: :show
     resources :bug_classes, except: :show do

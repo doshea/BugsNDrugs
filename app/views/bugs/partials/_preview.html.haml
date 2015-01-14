@@ -10,8 +10,13 @@
   - admin_version = @current_user && @current_user.is_admin?
   - optionals = [:morphology, :environment, :growth_pattern, :toxins]
   - booleans = [:motile, :encapsulated]
+  - arrays = [:diseases, :treatments]
   = editable_p(@bug, :brief_description, admin_version)
   - if admin_version
+    - arrays.each do |a|
+      %hr
+      %h6= a.to_s.titleize
+      = editable_array(@bug, a, admin_version)
     - optionals.each do |o|
       %hr
       %h6= o.to_s.titleize
@@ -24,6 +29,11 @@
         %h6 Image
         = editable_img(@bug, :image, admin_version)
   - else
+    - arrays.each do |a|
+      - if @bug.send(a).any?
+        %hr
+        %h6= a.to_s.titleize
+        = editable_array(@bug, a, admin_version)
     - optionals.each do |o|
       - if @bug.send(o)
         %hr

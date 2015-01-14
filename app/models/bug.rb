@@ -20,6 +20,8 @@
 #  bug_class_id      :integer
 #  created_at        :datetime
 #  updated_at        :datetime
+#  diseases          :text             default("{}"), is an Array
+#  treatments        :text             default("{}"), is an Array
 #
 
 class Bug < ActiveRecord::Base

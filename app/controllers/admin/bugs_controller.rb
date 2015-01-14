@@ -1,6 +1,6 @@
 class Admin::BugsController < ApplicationController
   before_action :ensure_admin
-  before_action :find_bug, only: [:edit, :update, :destroy]
+  before_action :find_bug, only: [:edit, :update, :update_array, :destroy]
 
   def index
     @new_bug = Bug.new
@@ -23,6 +23,16 @@ class Admin::BugsController < ApplicationController
     end
   end
 
+  #PATCH /admin/bugs/:id/update_array
+  def update_array
+    # new_params = array_params.map{|arr| arr.uniq} #ensure unique
+    if @bug.update_attributes(array_params)
+      console_js("SUCCESS - #{@bug.abbreviated_initial} updated.")
+    else
+      alert_js("!!!ERROR updating #{@bug.abbreviated_initial}!!!")
+    end
+  end
+
   def destroy
     @bug.destroy
   end
@@ -34,6 +44,10 @@ class Admin::BugsController < ApplicationController
 
   def admin_params
     params.require(:bug).permit(:name, :common_name, :gram_stain, :environment, :morphology, :growth_pattern, :description, :brief_description, :image, :remote_image_url, :toxins, :order, :bug_class_id, :motile, :encapsulated, :pending, :diseases, :treatments)
+  end
+
+  def array_params
+    params.require(:bug).permit(diseases: [], treatments: [])
   end
 
 end
