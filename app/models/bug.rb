@@ -22,6 +22,7 @@
 #  updated_at        :datetime
 #  diseases          :text             default("{}"), is an Array
 #  treatments        :text             default("{}"), is an Array
+#  tests             :string
 #
 
 class Bug < ActiveRecord::Base
