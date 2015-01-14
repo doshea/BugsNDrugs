@@ -2,27 +2,28 @@
 #
 # Table name: bugs
 #
-#  id                :integer          not null, primary key
-#  name              :string(255)      not null
-#  common_name       :string(255)
-#  gram_stain        :string(255)
-#  environment       :string(255)
-#  morphology        :string(255)
-#  growth_pattern    :string(255)
-#  description       :text
-#  brief_description :string(255)
-#  toxins            :text
-#  order             :integer
-#  image             :text
-#  motile            :boolean          default("false")
-#  encapsulated      :boolean          default("false")
-#  pending           :boolean
-#  bug_class_id      :integer
-#  created_at        :datetime
-#  updated_at        :datetime
-#  diseases          :text             default("{}"), is an Array
-#  treatments        :text             default("{}"), is an Array
-#  tests             :string
+#  id                   :integer          not null, primary key
+#  name                 :string(255)      not null
+#  common_name          :string(255)
+#  gram_stain           :string(255)
+#  environment          :string(255)
+#  morphology           :string(255)
+#  growth_pattern       :string(255)
+#  description          :text
+#  brief_description    :string(255)
+#  toxins               :text
+#  order                :integer
+#  image                :text
+#  motile               :boolean          default("false")
+#  encapsulated         :boolean          default("false")
+#  pending              :boolean
+#  bug_class_id         :integer
+#  created_at           :datetime
+#  updated_at           :datetime
+#  diseases             :text             default("{}"), is an Array
+#  treatments           :text             default("{}"), is an Array
+#  tests                :string
+#  patient_demographics :string
 #
 
 class Bug < ActiveRecord::Base

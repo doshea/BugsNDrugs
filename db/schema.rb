@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150114024231) do
+ActiveRecord::Schema.define(version: 20150114061752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,26 +29,27 @@ ActiveRecord::Schema.define(version: 20150114024231) do
   end
 
   create_table "bugs", force: :cascade do |t|
-    t.string   "name",              limit: 255,                 null: false
-    t.string   "common_name",       limit: 255
-    t.string   "gram_stain",        limit: 255
-    t.string   "environment",       limit: 255
-    t.string   "morphology",        limit: 255
-    t.string   "growth_pattern",    limit: 255
+    t.string   "name",                 limit: 255,                 null: false
+    t.string   "common_name",          limit: 255
+    t.string   "gram_stain",           limit: 255
+    t.string   "environment",          limit: 255
+    t.string   "morphology",           limit: 255
+    t.string   "growth_pattern",       limit: 255
     t.text     "description"
-    t.string   "brief_description", limit: 255
+    t.string   "brief_description",    limit: 255
     t.text     "toxins"
     t.integer  "order"
     t.text     "image"
-    t.boolean  "motile",                        default: false
-    t.boolean  "encapsulated",                  default: false
+    t.boolean  "motile",                           default: false
+    t.boolean  "encapsulated",                     default: false
     t.boolean  "pending"
     t.integer  "bug_class_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "diseases",                      default: [],                 array: true
-    t.text     "treatments",                    default: [],                 array: true
+    t.text     "diseases",                         default: [],                 array: true
+    t.text     "treatments",                       default: [],                 array: true
     t.string   "tests"
+    t.string   "patient_demographics"
   end
 
   create_table "drug_classes", force: :cascade do |t|
