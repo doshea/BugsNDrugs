@@ -33,7 +33,7 @@ class Admin::BugsController < ApplicationController
   end
 
   def admin_params
-    params.require(:bug).permit(:name, :common_name, :gram_stain, :environment, :morphology, :growth_pattern, :description, :brief_description, :image, :remote_image_url, :toxins, :order, :bug_class_id, :motile, :encapsulated, :pending)
+    params.require(:bug).permit(:name, :common_name, :gram_stain, :environment, :morphology, :growth_pattern, :description, :brief_description, :image, :remote_image_url, :toxins, :order, :bug_class_id, :motile, :encapsulated, :pending, :diseases, :treatments)
   end
 
 end
