@@ -40,16 +40,15 @@
   }
   a {
     padding: 0;
+  }
+  li {
+    padding-left: 0.5em;
+    line-height: 1.5em;
+    width: 100%;
+    background: white;
 
-    li {
-      padding-left: 0.5em;
-      line-height: 1.5em;
-      width: 100%;
-      background: white;
-
-      &:hover {
-        background-color: #ccc;
-      }
+    &:hover {
+      background-color: #ccc;
     }
   }
 }

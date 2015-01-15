@@ -5,11 +5,14 @@
   .small-3.columns
     = f.label :common_name
     = f.text_field :common_name
-  .small-3.columns.end
+  .small-3.columns
     = f.label :bug_class_id
     %select{name: 'bug[bug_class_id]', id: 'bug[bug_class_id]'}
       - BugClass.top_tier.each do |bc|
         = render partial: 'admin/bug_classes/partials/option', locals: {bc: bc}
+  .small-1.columns.end
+    = f.label :order
+    = f.number_field :order
 -# .large-1.columns
 -#   = f.label :order
 -# .large-1.columns
