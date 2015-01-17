@@ -7,6 +7,7 @@ window.global =
     $('.bug').on('dblclick','.admin-editable' , global.become_editable)
     $('.bug').on('keyup', '.admin-editable-array input', global.add_array_el)
     $('.bug').on('dblclick', '.admin-editable-array li', global.remove_array_el)
+    $('.bug').on('click', '.preview .fi-eye', global.view_as_user)
 
   live_search: ->
     query = $('#query').val()
@@ -19,6 +20,11 @@ window.global =
         url: "/live_search"
         data: {query: query}
       $.ajax(settings)
+
+  view_as_user: (e)->
+    e.preventDefault()
+    console.log('hello')
+    $('.hidden-to-users').toggle()
 
   # Admins can dblclick on certain text fields to edit them
   become_editable: ->

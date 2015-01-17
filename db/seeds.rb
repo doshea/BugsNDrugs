@@ -1,3 +1,8 @@
+#TODO
+# Gardnerella vaginalis
+# Propionibacterium acnes
+
+
 User.delete_all
 BugClass.delete_all
 Bug.delete_all
