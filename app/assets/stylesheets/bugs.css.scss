@@ -37,6 +37,12 @@
   }
   .bug_class, .drug_class {
     background: whitesmoke;
+    & > a {
+      color: #555;
+      &:hover {
+        color: #777;
+      }
+    }
   }
   .bug, .drug {
     background: white;
