@@ -3,10 +3,12 @@
   - if @current_user.is_admin?
     = link_to '' do
       %i.fi-eye.text-center
+    = link_to '' do
+      %i.fi-refresh.text-center
   %h5.name
     = link_to @bug.name, @bug, target: '_blank'
   - admin_version = @current_user && @current_user.is_admin?
-  - optionals = [:patient_demographics, :tests, :environment, :morphology, :growth_pattern, :toxins]
+  - optionals = [:patient_demographics, :transmission, :tests, :environment, :morphology, :growth_pattern, :toxins]
   - booleans = [:motile, :encapsulated]
   - arrays = [:diseases, :treatments]
 
