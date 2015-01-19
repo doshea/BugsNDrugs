@@ -1,5 +1,5 @@
-if($('#bug_<%= @id %> .preview').length < 1){
+if($('#bug_<%= @id %> .preview .nib').length < 1){
   var new_preview = $("<%=j render partial: 'bugs/partials/preview' %>").hide();
-  $('#bug_<%= @id %> .preview-container').append(new_preview);
+  $('#bug_<%= @id %> .preview').append(new_preview);
   new_preview.show();
 }

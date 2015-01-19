@@ -23,4 +23,14 @@ class BugsController < ApplicationController
     end
   end
 
+  def refresh_preview
+    @bug = Bug.find(params[:id])
+    if @bug
+      @id = params[:id]
+      render :refresh_preview
+    else
+      alert_js('ERROR: No such bug...')
+    end
+  end
+
 end

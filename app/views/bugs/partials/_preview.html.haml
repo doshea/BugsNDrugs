@@ -1,25 +1,24 @@
-.preview
-  .nib
-  - if @current_user.is_admin?
-    = link_to '' do
-      %i.fi-eye.text-center
-    = link_to '' do
-      %i.fi-refresh.text-center
-  %h5.name
-    = link_to @bug.name, @bug, target: '_blank'
-  - admin_version = @current_user && @current_user.is_admin?
-  - optionals = [:patient_demographics, :transmission, :tests, :environment, :morphology, :growth_pattern, :toxins]
-  - booleans = [:motile, :encapsulated]
-  - arrays = [:diseases, :treatments]
+.nib
+- if @current_user.is_admin?
+  = link_to '' do
+    %i.fi-eye.text-center
+  = link_to refresh_preview_bug_path(@bug), remote: true do
+    %i.fi-refresh.text-center
+%h5.name
+  = link_to @bug.name, @bug, target: '_blank'
+- admin_version = @current_user && @current_user.is_admin?
+- optionals = [:patient_demographics, :transmission, :tests, :environment, :morphology, :growth_pattern, :toxins]
+- booleans = [:motile, :encapsulated]
+- arrays = [:diseases, :treatments]
 
-  = editable_p(@bug, :brief_description, admin_version)
-  - arrays.each do |a|
-    = editable_array(@bug, a, admin_version)
-  - optionals.each do |o|
-    = editable_p(@bug, o, admin_version)
-  = editable_img(@bug, :image, admin_version)
-  %hr
-  %p
-    -booleans.each do |b|
-      - if @bug.send(b)
-        = b.to_s.titleize
+= editable_p(@bug, :brief_description, admin_version)
+- arrays.each do |a|
+  = editable_array(@bug, a, admin_version)
+- optionals.each do |o|
+  = editable_p(@bug, o, admin_version)
+= editable_img(@bug, :image, admin_version)
+%hr
+%p
+  -booleans.each do |b|
+    - if @bug.send(b)
+      = b.to_s.titleize

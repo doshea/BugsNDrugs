@@ -10,6 +10,7 @@ BugsNDrugs::Application.routes.draw do
   resources :bugs, only: [:index, :show] do
     member do
       get :show_preview
+      get :refresh_preview
     end
   end
   resources :bug_classes, only: [:show]
