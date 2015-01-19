@@ -9,7 +9,7 @@ module DynamicEditHelper
         haml_tag :h6, class: "#{'hidden-to-users' unless sendable}" do
           haml_concat attribute.to_s.titleize
         end
-        haml_tag :p, class: "#{'admin-editable hidden-to-users' if edit_condition}", data: {param: attribute} do
+        haml_tag :p, class: "#{'admin-editable' if edit_condition} #{'hidden-to-users' unless sendable}", data: {param: attribute} do
           haml_concat obj.send(attribute) || (fallback_text if edit_condition)
         end
       end
