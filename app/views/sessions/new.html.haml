@@ -22,19 +22,10 @@
         = check_box_tag :remember_me, 1, params[:remember_me]
       .small-10.columns
         = label_tag :remember_me, 'Remember me on this computer'
-    %br
     = submit_tag 'Log In', :class => 'button radius small'
+  = link_to 'Forgot your login?', account_forgot_path, class: 'button small warning gold'
 .small-2.columns.centered
-  %br
-  %br
-  %br
-  %br
-  %br
-  %br
-  %br
-  %br
-  %br
-  #beezy.button.secondary or
+  #cute-or.button.secondary or
 .small-4.columns.medium-3.end.text-center
   %h2.text-center Register
   %hr

@@ -2,17 +2,19 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  first_name      :string(255)
-#  last_name       :string(255)
-#  email           :string(255)
-#  username        :string(255)
-#  is_admin        :boolean
-#  password_digest :string(255)
-#  image           :text
-#  auth_token      :string(255)
-#  created_at      :datetime
-#  updated_at      :datetime
+#  id                     :integer          not null, primary key
+#  first_name             :string(255)
+#  last_name              :string(255)
+#  email                  :string(255)
+#  username               :string(255)
+#  is_admin               :boolean
+#  password_digest        :string(255)
+#  image                  :text
+#  auth_token             :string(255)
+#  created_at             :datetime
+#  updated_at             :datetime
+#  password_reset_token   :string
+#  password_reset_sent_at :datetime
 #
 
 class User < ActiveRecord::Base
@@ -61,9 +63,18 @@ class User < ActiveRecord::Base
     allow_blank: true,
     length: { minimum: MIN_NAME_LENGTH, maximum: MAX_LAST_NAME_LENGTH, message: ": Should be at least #{MIN_NAME_LENGTH} characters"}
 
-    def generate_token(column)
-      begin
-        self[column] = SecureRandom.urlsafe_base64
-      end while User.exists?(column => self[column]) #may need a colon
-    end
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.urlsafe_base64
+    end while User.exists?(column => self[column]) #may need a colon
+  end
+  def full_name
+    "#{first_name} #{last_name}".strip
+  end
+  def display_first_name
+    first_name.present? ? first_name : username
+  end
+  def named_email_address
+    full_name.blank? ? email : "#{full_name} <#{email}>"
+  end
 end

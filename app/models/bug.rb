@@ -24,6 +24,7 @@
 #  treatments           :text             default("{}"), is an Array
 #  tests                :string
 #  patient_demographics :string
+#  transmission         :string
 #
 
 class Bug < ActiveRecord::Base

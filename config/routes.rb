@@ -23,13 +23,17 @@ BugsNDrugs::Application.routes.draw do
   resources :symptoms, only: [:index, :show]
   
   namespace :account do
-    get '/', to: :show
+    get '/', action: :show
     patch :update
     patch :change_password
+    get :forgot
+    get :forgot_username
+    get :forgot_password
+    patch :reset_password
   end
 
   namespace :admin do
-    get '/', to: :index
+    get '/', action: :index
     resources :users, only: [:index, :edit, :update, :destroy]
     resources :bugs, except: :show do
       member do
