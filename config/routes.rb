@@ -6,7 +6,11 @@ BugsNDrugs::Application.routes.draw do
   delete '/login' => 'sessions#destroy'
   get '/live_search' => 'pages#live_search'
 
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create] do
+    member do
+      patch :reset_password
+    end
+  end
   resources :bugs, only: [:index, :show] do
     member do
       get :show_preview
@@ -23,17 +27,21 @@ BugsNDrugs::Application.routes.draw do
   resources :symptoms, only: [:index, :show]
   
   namespace :account do
-    get '/', action: :show
+    get '/', to: :show
     patch :update
     patch :change_password
+    
     get :forgot
     get :forgot_username
     get :forgot_password
-    patch :reset_password
+    get :reset_password
+
+    get :verify
+    get :verified
   end
 
   namespace :admin do
-    get '/', action: :index
+    get '/', to: :index
     resources :users, only: [:index, :edit, :update, :destroy]
     resources :bugs, except: :show do
       member do

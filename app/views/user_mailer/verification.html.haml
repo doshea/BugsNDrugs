@@ -1,0 +1,4 @@
+%h3 Welcome to BugsNDrugs, #{@user.username}!
+%p
+  Please verify your email address by clicking the following link (or pasting the URL into your browser search bar):
+= link_to account_verify_url(verification_token: @user.verification_token), account_verify_url(verification_token: @user.verification_token)

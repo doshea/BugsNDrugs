@@ -48,6 +48,16 @@ header {
     .icon {
       height: 2em;
     }
+    .name {
+      img {
+        display: inline-block;
+        height: 2em;
+      }
+      h1 {
+        display: inline-block;
+      }
+
+    }
   }
 }
 #user-menu {

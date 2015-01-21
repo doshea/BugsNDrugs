@@ -15,6 +15,8 @@
 #  updated_at             :datetime
 #  password_reset_token   :string
 #  password_reset_sent_at :datetime
+#  verified               :boolean          default("false")
+#  verification_token     :string
 #
 
 class User < ActiveRecord::Base
@@ -22,7 +24,7 @@ class User < ActiveRecord::Base
   
   mount_uploader :image, AccountPicUploader
   
-  before_create { generate_token(:auth_token) }
+  before_create { generate_token(:auth_token); generate_token(:verification_token); }
 
   MIN_PASSWORD_LENGTH = 5
   MAX_PASSWORD_LENGTH = 16
