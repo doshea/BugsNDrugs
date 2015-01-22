@@ -7,7 +7,7 @@ class AccountPicUploader < CarrierWave::Uploader::Base
   # Include the Sprockets helpers for Rails 3.1+ asset pipeline compatibility:
   # include Sprockets::Helpers::RailsHelper
   # include Sprockets::Helpers::IsolatedHelper
-  include Sprockets::Rails::Helper
+  # include Sprockets::Rails::Helper
 
   # Choose what kind of storage to use for this uploader:
   storage :fog
@@ -18,9 +18,9 @@ class AccountPicUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  # end
   def default_url
-    asset_path('assets/default_images/default_user_img.jpg');
+    #Thanks to http://stackoverflow.com/questions/16609814/how-to-use-a-digest-aware-asset-for-default-url-in-rails4
+    ActionController::Base.helpers.asset_path("default_images/" + [version_name, "default_user_img.jpg"].compact.join('_'))
   end
 
   def extension_white_list
