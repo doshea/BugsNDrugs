@@ -20,7 +20,7 @@ class AccountPicUploader < CarrierWave::Uploader::Base
 
   def default_url
     #Thanks to http://stackoverflow.com/questions/16609814/how-to-use-a-digest-aware-asset-for-default-url-in-rails4
-    ActionController::Base.helpers.asset_path("default_images/" + [version_name, "default_user_img.jpg"].compact.join('_'))
+    ActionController::Base.helpers.asset_path('default_images/default_user_img.jpg')
   end
 
   def extension_white_list
