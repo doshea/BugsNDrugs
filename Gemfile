@@ -30,6 +30,8 @@ gem 'seed_dump'
 # Datatables is disables by default. To enable, uncomment this gem and its related js and css lines in application.js and .css
 # gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 
+
+gem 'nilify_blanks'
 #Slighty Fuzzy search. Probably needs to be replaced with Solr.
 gem 'pg_search'
 

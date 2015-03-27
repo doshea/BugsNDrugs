@@ -23,7 +23,6 @@ window.global =
 
   view_as_user: (e)->
     e.preventDefault()
-    console.log('hello')
     $('.hidden-to-users').toggle()
 
   # Admins can dblclick on certain text fields to edit them

@@ -1,22 +1,21 @@
 .nib
-- if @current_user.is_admin?
+- if is_admin?
   = link_to '' do
     %i.fi-eye.text-center
   = link_to refresh_preview_bug_path(@bug), remote: true do
     %i.fi-refresh.text-center
 %h5.name
   = link_to @bug.name, @bug, target: '_blank'
-- admin_version = @current_user && @current_user.is_admin?
 - optionals = [:patient_demographics, :transmission, :tests, :environment, :morphology, :growth_pattern, :toxins]
 - booleans = [:motile, :encapsulated]
 - arrays = [:diseases, :treatments]
 
-= editable_p(@bug, :brief_description, admin_version)
+= editable_p(@bug, :brief_description, is_admin?)
 - arrays.each do |a|
-  = editable_array(@bug, a, admin_version)
+  = editable_array(@bug, a, is_admin?)
 - optionals.each do |o|
-  = editable_p(@bug, o, admin_version)
-= editable_img(@bug, :image, admin_version)
+  = editable_p(@bug, o, is_admin?)
+= editable_img(@bug, :image, is_admin?)
 %hr
 %p
   -booleans.each do |b|
