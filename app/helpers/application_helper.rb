@@ -8,4 +8,16 @@ module ApplicationHelper
     @current_user.present?
   end
 
+  def title(s, override=false)
+    content_for(:title){override ? s : "BugsNDrugs | #{s}"}
+  end
+
+  def title_backup
+    if content_for? :title
+      return nil
+    else
+      'BugsNDrugs'
+    end
+  end
+
 end
