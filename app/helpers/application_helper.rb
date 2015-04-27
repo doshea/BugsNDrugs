@@ -9,7 +9,7 @@ module ApplicationHelper
   end
 
   def title(s, override=false)
-    content_for(:title){override ? s : "BugsNDrugs | #{s}"}
+    content_for(:title){override ? s : "#{s} | BugsNDrugs"}
   end
 
   def title_backup
