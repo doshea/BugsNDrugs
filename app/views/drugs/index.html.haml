@@ -9,7 +9,7 @@
       %dd{"data-magellan-arrival" => "autonomics"}
         %a{href: "#autonomics"} Autonomics
 
-  - antimicrobial,chemotherapeutics,immunosuppressants, autonomics = DrugClass.all
+  - antimicrobial,chemotherapeutics,immunosuppressants, autonomics = DrugClass.where(tier: 0).order(:order)
   %ul.public.drug-list
     %a{name: 'antimicrobials', 'data-magellan-destination' => 'antimicrobials'}
     %li.tier-0{id: antimicrobial.name.downcase}
@@ -40,4 +40,13 @@
           = render partial: 'partials/multicolumn', locals: {bc: immunosuppressants, bug_or_drug: false, splits: [(0..2)]}
     %hr
     %a{name: 'autonomics', 'data-magellan-destination' => 'autonomics'}
-    %li.tier-0{id: chemotherapeutics.name.downcase}
+    %li.tier-0{id: autonomics.name.downcase}
+      %h2.centered
+        -# Icon is "Snore" by johanna from The Noun Project
+        = image_tag asset_path('icons/autonomic.svg'), class: 'bug-icon'
+        Autonomics
+      %hr.mini
+        .small-4.columns
+          = render partial: 'partials/multicolumn', locals: {bc: autonomics.drug_classes[0], bug_or_drug: false, splits: [(0..1)]}
+        .small-4.columns
+          = render partial: 'partials/multicolumn', locals: {bc: autonomics.drug_classes[1], bug_or_drug: false, splits: [(0..1)]}

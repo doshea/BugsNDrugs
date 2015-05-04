@@ -377,6 +377,33 @@ immunosuppressants.add_leafs(['Mycophenolate Mofitil'])
 immunophilin_inhibs.add_leafs(['Cyclosporine','Tacrolimus','Serolimus'])
 anti_tnfs.add_leafs(['Infliximab (Remicade)','Adalimumab (Humera)','Etanercept (Enbrel)'])
 
+#Autonomics
+cholinergics, anticholinergics = autonomics.add_child_classes(['Cholinergics', 'Anticholinergics'])
+nicotinics, muscarinics, ache_antagonists = cholinergics.add_child_classes(['Nicotinics', 'Muscarinics', 'AChE Inhibitors'])
+ache_sens_esters, ache_res_esters, alkaloids = muscarinics.add_child_classes(['AChE Sens. Esters', 'AChE Res. Esters', 'Alkaloids'])
+
+nicotinics.add_leafs(['Nicotine', 'DMPP'])
+ache_sens_esters.add_leafs(['ACh', 'Methacholine'])
+ache_res_esters.add_leafs(['Bethanechol', 'Carbamylcholine'])
+alkaloids.add_leafs(['Muscarine', 'Pilocarpine', 'Cevimiline'])
+
+ache_antagonists.add_leafs(['Edrophonium', 'Neostigmine', 'Physostigmine', 'Donepezil'])
+organophosphates = ache_antagonists.add_child_class('Organophosphates')
+organophosphates.add_leafs(['Isofluorophate', 'Echothiophate'])
+
+anti_muscarinics, anti_nicotinics = anticholinergics.add_child_classes(['Anti-Muscarinics', 'Anti-Nicotinics'])
+depolarizing, non_depolarizing, cholinesterase_regens = anti_nicotinics.add_child_classes(['Depolarizing', 'Non-Depolarizing', 'Cholinesterase Regenerators'])
+
+anti_muscarinics.add_leafs(['Pirenzepine (m1)','Tiotropium (m3)','Atropine','Scopalomine','N-methyl Atropine','Ipratropium'])
+depolarizing.add_leafs(['Hexamethonium','Succinylcholine'])
+non_depolarizing.add_leafs(['Mivacurium','D-tubocurarine'])
+cholinesterase_regens.add_leafs(['Pralidoxime (2-PAM)'])
+
+
+
+
+
+
 
 
 
