@@ -14,7 +14,9 @@
       - if is_admin?
         %li.divider
         %li
-          = link_to 'Admin', admin_path
+          = link_to admin_path do
+            %i.fi-sheriff-badge
+            Admin
       %li.divider
     -# Middle
     -# %ul.middle
