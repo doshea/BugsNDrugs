@@ -1,27 +1,12 @@
-.preview
-  .nib
-  = link_to @drug, target: '_blank' do
-    %i.fi-link.text-center
+.nib
+- if is_admin?
   = link_to '' do
-    %i.fi-x.text-center
-  -# FIX THIS
-  -# - if @treats.any?
-  -#   %h6 Treats:
-  -#   %ul
-  -#     - @treats.each do |treat|
-  -#       %li= treat
-  -#   %hr
-  -# %hr
-  %h6 Administered:
-  %p= @administered
-  %hr
-  %h6 Metabolized:
-  %p= @metabolized_in
-  %hr
-  %h6 Mechanism:
-  %p.mechanism= @mechanism
-  %hr
-  %h6 Toxicity:
-  %ul
-    - @side_effects.each do |effect|
-      %li= effect
+    %i.fi-eye.text-center
+  = link_to refresh_preview_drug_path(@drug), remote: true do
+    %i.fi-refresh.text-center
+%h5.name
+  = link_to "#{@drug.generic_name} #{"#{(@drug.trade_name)}" if @drug.trade_name}", @drug, target: '_blank'
+
+- optionals = [:mechanism, :administered, :metabolized_in, :toxicities]
+- optionals.each do |o|
+  = editable_p(@drug, o, is_admin?)

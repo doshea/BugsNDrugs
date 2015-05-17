@@ -96,17 +96,6 @@
 }
 .bug .preview {
   width: 30em;
-  h5 {
-    background-color: inherit;
-    margin: 0;
-    font-size: larger;
-  }
-  p {
-    font-size: small;
-  }
-  h6 {
-    font-weight: bold;
-  }
 }
 .drug .preview {
   width: 15em;
@@ -123,6 +112,19 @@
   border: 1px solid #aaa;
   @include box-shadow(3px, 3px, 5px, black);
 
+  h5 {
+    background-color: inherit;
+    margin: 0;
+    font-size: larger;
+  }
+  p {
+    font-size: small;
+  }
+  h6 {
+    font-weight: bold;
+    font-size: smaller;
+  }
+
   .nib {
     position: absolute;
     top: 1.5em;
@@ -131,15 +133,6 @@
     height: 0;
     border: solid 10px;
     border-color: transparent #333333 transparent transparent;
-  }
-  p {
-    font-size: larger;
-    &.mechanism {
-      font-size: smaller;
-    }
-  }
-  h6 {
-    font-size: smaller;
   }
   ul {
     border: none;

@@ -1,5 +1,5 @@
-if($('#drug_<%= @id %> .preview').length < 1){
+if($('#drug_<%= @id %> .preview .nib').length < 1){
   var new_preview = $("<%=j render partial: 'drugs/partials/preview' %>").hide();
-  $('#drug_<%= @id %> .preview-container').append(new_preview);
+  $('#drug_<%= @id %> .preview').append(new_preview);
   new_preview.show();
 }
